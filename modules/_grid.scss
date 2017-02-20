@@ -1,4 +1,26 @@
-// Defaults.
+// Copyright (c) 2016-2017, Christian Griffith & Sean Washington.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+// ----------------------------------------------------------------------------
+// Defaults
+// ----------------------------------------------------------------------------
 $breakpoints: (
   sm: '(min-width: 600px)',
   md: '(min-width: 768px)',
@@ -9,6 +31,15 @@ $breakpoints: (
 $container-width: 90rem !default;
 $columns: 12 !default;
 
+
+// Grid System
+// ----------------------------------------------------------------------------
+.container {
+  max-width: $container-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .clearfix {
   &::after {
     content: "";
@@ -17,23 +48,13 @@ $columns: 12 !default;
   }
 }
 
-.container {
-  @extend .clearfix;
-  max-width: $container-width;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.row {
-  @extend .clearfix;
-  display: block;
-}
-
 [class^='col-'],
-[class*=' col-'] {
-  float: left;
+[class*='col-'] {
   width: 100%;
   box-sizing: border-box;
+
+  // If we're clearfix-ing, it's because we intend to use float columns.
+  .clearfix & { float: left; }
 }
 
 @for $i from 1 through $columns {
@@ -63,4 +84,23 @@ $columns: 12 !default;
       }
     }
   }
+}
+
+// ----------------------------------------------------------------------------
+// Deprecation.
+// ----------------------------------------------------------------------------
+
+// v1.0.2
+// ----------------------------------------------------------------------------
+// We're removing the `.clearfix` extend from `.container` because it made the
+// assumption that the container would have floated elements.
+.container {
+  @extend .clearfix;
+}
+// We're also removing the `.row` class because it was essentially a duplicate
+// of the `.clearfix`; and `.clearfix` is more descriptive what the class
+// actually does.
+.row {
+  @extend .clearfix;
+  display: block;
 }

@@ -1,4 +1,26 @@
-// Defaults.
+// Copyright (c) 2016-2017, Christian Griffith & Sean Washington.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+// ----------------------------------------------------------------------------
+// Defaults
+// ----------------------------------------------------------------------------
 $breakpoints: (
   sm: '(min-width: 600px)',
   md: '(min-width: 768px)',
@@ -6,15 +28,27 @@ $breakpoints: (
   xl: '(min-width: 1440px)'
 ) !default;
 
+$ratios: (
+  1_1: 1/1,
+  4_3: 3/4,
+  5_3: 3/5,
+  16_9: 9/16,
+  21_9: 9/21,
+  36_9: 9/36,
+  iphone7: 750/1334,
+  macbookpro15: 1800/2880
+) !default;
+
+// Display Properties.
+// ----------------------------------------------------------------------------
 // Keep elements in DOM for accessibility but hidden from view.
-.hidden {
+.d-hidden {
   visibility: hidden;
   pointer-events: none;
   position: absolute;
   left: -300%;
 }
 
-// Display properties.
 .d-inline-block { display: inline-block; }
 .d-block { display: block; }
 .d-none { display: none; }
@@ -24,6 +58,8 @@ $breakpoints: (
   height: 100vh;
 }
 
+// Overflow Properties.
+// ----------------------------------------------------------------------------
 .o-auto {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -34,7 +70,8 @@ $breakpoints: (
 
 .no-wrap { white-space: nowrap; }
 
-// Vertical align.
+// Vertical alignment.
+// ----------------------------------------------------------------------------
 .va-top { vertical-align: top; }
 .va-middle { vertical-align: middle; }
 .va-bottom { vertical-align: bottom; }
@@ -68,6 +105,7 @@ $breakpoints: (
 }
 
 // Aspect ratios.
+// ----------------------------------------------------------------------------
 [class^='ratio-'],
 [class*=' ratio-'] {
   width: 100%;
@@ -84,27 +122,21 @@ $breakpoints: (
     left: 0;
   }
 
-  // Standard ratios.
-  &[class*='1_1']::before { padding-top: 100%; }
-  &[class*='1_2']::before { padding-top: 200%; }
-  &[class*='4_3']::before { padding-top: 75%; }
-  &[class*='5_3']::before { padding-top: 60%; }
-  &[class*='16_9']::before { padding-top: 56.25%; }
-  &[class*='21_9']::before { padding-top: 42.86%; }
-  &[class*='28_9']::before { padding-top: 32.14%; }
-  &[class*='36_9']::before { padding-top: 25%; }
-
-  &[class*='iphone6']::before { padding-top: 178%; }
-  // Cool little trick thanks to http://www.mademyday.de/css-height-equals-width-with-pure-css.html.
+  @each $name, $ratio in $ratios {
+    &[class*='#{$name}']::before { padding-top: ($ratio * 100) + 0%; }
+    // Cool little trick thanks to http://www.mademyday.de/css-height-equals-width-with-pure-css.html.
+  }
 }
 
-// Take control of your background images.
+// [WIP] Background Image Properties.
+// ----------------------------------------------------------------------------
 [class^='bg-'],
 [class*=' bg-'] {
   &[class*='cover'] { background-size: cover; }
 }
 
-// Use an element to crop an image.
+// [WIP] Image Cropping.
+// ----------------------------------------------------------------------------
 .crop,
 [class^='crop-'],
 [class*=' crop-'] {
@@ -113,8 +145,18 @@ $breakpoints: (
   &[class*='fit'] { width: 100%; }
 
   &[class*='cover'] img {
-    min-height: 100%;
     // https://css-tricks.com/almanac/properties/o/object-fit/
+    min-height: 100%;
     object-fit: cover;
   }
 }
+
+// ----------------------------------------------------------------------------
+// Deprecation.
+// ----------------------------------------------------------------------------
+
+// v1.0.2
+// ----------------------------------------------------------------------------
+// We're changing `.hidden` to `.d-hidden` to be more explicit that this is
+// technically a display property.
+.hidden { @extend .d-hidden; }
