@@ -34,6 +34,7 @@ $breakpoints: (
 .flex-column { flex-direction: column; }
 .flex-row { flex-direction: row; }
 .flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
 
 // Items alignment
 // ----------------------------------------------------------------------------
@@ -95,6 +96,7 @@ $breakpoints: (
     .#{$abbr}-flex-column { flex-direction: column; }
     .#{$abbr}-flex-row { flex-direction: row; }
     .#{$abbr}-flex-wrap { flex-wrap: wrap; }
+    .#{$abbr}-flex-nowrap { flex-wrap: nowrap; }
     .#{$abbr}-items-center { align-items: center; }
     .#{$abbr}-items-end { align-items: flex-end; }
     .#{$abbr}-item-right { margin-left: auto; }
