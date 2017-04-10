@@ -86,30 +86,30 @@ $spacing-increments: 0.6 1.6 2.6 4.2 6.8 11 18 29 46 75 !default;
   }
 
   .m-#{$i} { margin: $rem-value; }
-  .mn-#{$i} { margin: -1*($rem-value); }
+  .mn-#{$i} { margin: -($rem-value); }
   .mt-#{$i} { margin-top: $rem-value; }
-  .mtn-#{$i} { margin-top: -1*($rem-value); }
+  .mtn-#{$i} { margin-top: -($rem-value); }
   .mr-#{$i} { margin-right: $rem-value; }
-  .mrn-#{$i} { margin-right: -1*($rem-value); }
+  .mrn-#{$i} { margin-right: -($rem-value); }
   .mb-#{$i} { margin-bottom: $rem-value; }
-  .mbn-#{$i} { margin-bottom: -1*($rem-value); }
+  .mbn-#{$i} { margin-bottom: -($rem-value); }
   .ml-#{$i} { margin-left: $rem-value; }
-  .mln-#{$i} { margin-left: -1*($rem-value); }
+  .mln-#{$i} { margin-left: -($rem-value); }
   .mx-#{$i} {
     margin-left: $rem-value;
     margin-right: $rem-value;
   }
   .mxn-#{$i} {
-    margin-left: -1*($rem-value);
-    margin-right: -1*($rem-value);
+    margin-left: -($rem-value);
+    margin-right: -($rem-value);
   }
   .my-#{$i} {
     margin-top: $rem-value;
     margin-bottom: $rem-value;
   }
   .myn-#{$i} {
-    margin-top: -1*($rem-value);
-    margin-bottom: -1*($rem-value);
+    margin-top: -($rem-value);
+    margin-bottom: -($rem-value);
   }
 }
 
@@ -167,30 +167,30 @@ $spacing-increments: 0.6 1.6 2.6 4.2 6.8 11 18 29 46 75 !default;
       }
 
       .#{$abbr}-m-#{$i} { margin: $rem-value; }
-      .#{$abbr}-mn-#{$i} { margin: -1*($rem-value); }
+      .#{$abbr}-mn-#{$i} { margin: -($rem-value); }
       .#{$abbr}-mt-#{$i} { margin-top: $rem-value; }
-      .#{$abbr}-mtn-#{$i} { margin-top: -1*($rem-value); }
+      .#{$abbr}-mtn-#{$i} { margin-top: -($rem-value); }
       .#{$abbr}-mr-#{$i} { margin-right: $rem-value; }
-      .#{$abbr}-mrn-#{$i} { margin-right: -1*($rem-value); }
+      .#{$abbr}-mrn-#{$i} { margin-right: -($rem-value); }
       .#{$abbr}-mb-#{$i} { margin-bottom: $rem-value; }
-      .#{$abbr}-mbn-#{$i} { margin-bottom: -1*($rem-value); }
+      .#{$abbr}-mbn-#{$i} { margin-bottom: -($rem-value); }
       .#{$abbr}-ml-#{$i} { margin-left: $rem-value; }
-      .#{$abbr}-mln-#{$i} { margin-left: -1*($rem-value); }
+      .#{$abbr}-mln-#{$i} { margin-left: -($rem-value); }
       .#{$abbr}-mx-#{$i} {
         margin-left: $rem-value;
         margin-right: $rem-value;
       }
       .#{$abbr}-mxn-#{$i} {
-        margin-left: -1*($rem-value);
-        margin-right: -1*($rem-value);
+        margin-left: -($rem-value);
+        margin-right: -($rem-value);
       }
       .#{$abbr}-my-#{$i} {
         margin-top: $rem-value;
         margin-bottom: $rem-value;
       }
       .#{$abbr}-myn-#{$i} {
-        margin-top: -1*($rem-value);
-        margin-bottom: -1*($rem-value);
+        margin-top: -($rem-value);
+        margin-bottom: -($rem-value);
       }
     }
   }
