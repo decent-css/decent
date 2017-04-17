@@ -2,3 +2,5 @@
 node_modules
 css/
 npm-debug.log
+static
+public

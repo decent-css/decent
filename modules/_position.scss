@@ -1,54 +1,53 @@
 // Copyright (c) 2016-2017, Christian Griffith & Sean Washington.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
+// of this software and associated documentation files (the "Software"), to
+// deal in the Software without restriction, including without limitation the
+// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+// sell copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
 
-// ----------------------------------------------------------------------------
-// Defaults
-// ----------------------------------------------------------------------------
-$breakpoints: (
-  sm: '(min-width: 600px)',
-  md: '(min-width: 768px)',
-  lg: '(min-width: 1280px)',
-  xl: '(min-width: 1440px)'
-) !default;
 
-// Apply relative positioning to an element.
-// Specifically a parent with absolutely positioned
-// children.
-.relative { position: relative; }
+// Import mixins.
+@import '../util/mixins';
+@import '../util/defaults';
 
-// Absolute and fixed positioning.
-.absolute { position: absolute; }
-.fixed { position: fixed; }
+@include build-classes((
+  'relative': (position, relative),
+  'absolute': (position, absolute),
+  'fixed': (position, fixed),
+  'top': (top, $percentage-scale),
+  'right': (right, $percentage-scale),
+  'bottom': (bottom, $percentage-scale),
+  'left': (left, $percentage-scale),
+  'z': (z-index, (
+    '5': 10001
+
+  )),
+  'zn': (
+    '1': -1,
+    '10': -10
+  )
+), $breakpoints);
+
 
 // Origin in middle.
 // Use this when centering an element with absolute/fixed positioning.
 .origin-center { transform: translate3d(-50%, -50%, 0); }
 
-// Coordinates.
+// Translate.
 @for $i from 0 through 10 {
-  .top-#{$i*10} { top: $i*10%; }
-  .right-#{$i*10} { right: $i*10%; }
-  .bottom-#{$i*10} { bottom: $i*10%; }
-  .left-#{$i*10} { left: $i*10%; }
-
-  // Translate.
   .y-#{$i*10} { transform: translateY($i*10%); }
   .yn-#{$i*10} { transform: translateY(-$i*10%); }
   .x-#{$i*10} { transform: translateX($i*10%); }
@@ -56,18 +55,10 @@ $breakpoints: (
 }
 
 @each $abbr, $breakpoint in $breakpoints {
-  @media #{$breakpoint} {
-    .#{$abbr}-relative { position: relative; }
-    .#{$abbr}-absolute { position: absolute; }
-    .#{$abbr}-fixed { position: fixed; }
+  @media (min-width: $breakpoint) {
     .#{$abbr}-origin-center { transform: translate3d(-50%, -50%, 0); }
 
     @for $i from 1 through 10 {
-      .#{$abbr}-top-#{$i*10} { top: $i*10%; }
-      .#{$abbr}-right-#{$i*10} { right: $i*10%; }
-      .#{$abbr}-bottom-#{$i*10} { bottom: $i*10%; }
-      .#{$abbr}-left-#{$i*10} { left: $i*10%; }
-
       .#{$abbr}-y-#{$i*10} { transform: translateY($i*10%); }
       .#{$abbr}-yn-#{$i*10} { transform: translateY(-$i*10%); }
       .#{$abbr}-x-#{$i*10} { transform: translateX($i*10%); }
@@ -75,17 +66,3 @@ $breakpoints: (
     }
   }
 }
-
-// Z-index.
-.z-10 { z-index: 1001; }
-.z-9 { z-index: 1000; }
-.z-8 { z-index: 999; }
-.z-7 { z-index: 998; }
-.z-6 { z-index: 101; }
-.z-5 { z-index: 100; }
-.z-4 { z-index: 999; }
-.z-3 { z-index: 998; }
-.z-2 { z-index: 100; }
-.z-1 { z-index: 99; }
-.z-0 { z-index: 0; }
-.zn-1 { z-index: -1; }

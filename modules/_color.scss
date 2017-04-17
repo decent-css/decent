@@ -1,69 +1,43 @@
 // Copyright (c) 2016-2017, Christian Griffith & Sean Washington.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
+// of this software and associated documentation files (the "Software"), to
+// deal in the Software without restriction, including without limitation the
+// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+// sell copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
 
-// ----------------------------------------------------------------------------
-// Defaults
-// ----------------------------------------------------------------------------
-$color-primary:    #3498db lighten(#3498db, 10%) lighten(#3498db, 20%) !default;
-$color-secondary:  #34495e lighten(#34495e, 10%) lighten(#34495e, 20%) !default;
-$color-error:      #e74c3c lighten(#e74c3c, 10%) lighten(#e74c3c, 20%) !default;
-$color-warning:    #f39c12 lighten(#f39c12, 10%) lighten(#f39c12, 20%) !default;
-$color-success:    #27ae60 lighten(#27ae60, 10%) lighten(#27ae60, 20%) !default;
-
-$black:             #000 !default;
-$white:             #fff !default;
-$greys:             lighten(#000, 10%) lighten(#000, 24%) lighten(#000, 38%) lighten(#000, 52%) lighten(#000, 64%) lighten(#000, 78%) lighten(#000, 92%) lighten(#000, 98%) !default;
+// Import mixins.
+@import '../util/mixins';
+@import '../util/defaults';
 
 // Main UI colors.
-// ----------------------------------------------------------------------------
-@mixin buildColors($colorset, $name) {
-  @each $shade in $colorset {
-    $i: index($colorset, $shade);
-
-    @if $i == 1 {
-      .c-#{$name} { color: $shade; }
-      .cbg-#{$name} { background-color: $shade; }
-    }
-    @else {
-      .c-#{$name}-alt-#{$i+(-1)} { color: $shade; }
-      .cbg-#{$name}-alt-#{$i+(-1)} { background-color: $shade; }
-    }
-  }
-}
-
-@include buildColors($color-primary, 'primary');
-@include buildColors($color-secondary, 'secondary');
-@include buildColors($color-error, 'error');
-@include buildColors($color-warning, 'warning');
-@include buildColors($color-success, 'success');
+@include build-colors($color-primary, 'primary');
+@include build-colors($color-secondary, 'secondary');
+@include build-colors($color-error, 'error');
+@include build-colors($color-warning, 'warning');
+@include build-colors($color-success, 'success');
 
 // Grayscale.
-// ----------------------------------------------------------------------------
 @each $grey in $greys {
   $i: index($greys, $grey);
 
   @if $i == 1 {
     .cg-black { color: $black; }
     .cg-white { color: $white; }
-    .cbgg-black { background-color: black; }
-    .cbgg-white { background-color: white; }
+    .cbgg-black { background-color: $black; }
+    .cbgg-white { background-color: $white; }
   }
 
   // The use of g here notes that these colors are a part of
@@ -72,8 +46,7 @@ $greys:             lighten(#000, 10%) lighten(#000, 24%) lighten(#000, 38%) lig
   .cbgg-#{$i} { background-color: $grey; }
 }
 
-// Opacity settings.
-// ----------------------------------------------------------------------------
+// Opacity.
 @for $i from 0 through 10 {
   .a-#{$i} { opacity: $i/10; }
 }

@@ -67,14 +67,14 @@ gulp.task('stats', function() {
 
 // Refresh browser on html changes.
 gulp.task('html', function() {
-  return gulp.src('src/*.html')
+  return gulp.src('*.html')
     .pipe(plumber())
     .pipe(browserSync.reload({stream: true}))
     .on('error', gutil.log);
 });
 
-gulp.task('default', ['styles', 'stats'], function() {
+gulp.task('default', ['styles', 'stylelint', 'stats', 'browserSync'], function() {
   gulp.watch(['./modules/**/*', './functions/**/*'], ['stylelint', 'styles', 'stats']);
-  gulp.watch('src/*.html', ['html']);
+  gulp.watch('*.html', ['html']);
   gulp.watch();
 });

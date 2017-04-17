@@ -18,62 +18,26 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
-
-@include build-classes((
-  'none': (display, none),
-  'inline': (display, inline),
-  'block': (display, block),
-  'inline-block': (display, inline-block),
-  'o': (overflow, (
-    'auto': auto,
-    'visible': visible,
-    'hidden': hidden
-  ))
-), $breakpoints);
-
-
-// ----------------------------------------------------------------------------
-// Deprecation
-// ----------------------------------------------------------------------------
-.no-wrap { white-space: nowrap; }
-
-.d-hidden {
-  visibility: hidden;
-  pointer-events: none;
-  position: absolute;
-  left: -300%;
-}
-
-.d-inline-block { display: inline-block; }
-.d-block { display: block; }
-.d-none { display: none; }
-
-.d-full {
+[class^='ratio-'],
+[class*=' ratio-'] {
   width: 100%;
-  height: 100vh;
-}
+  position: relative;
 
-.crop,
-[class^='crop-'],
-[class*=' crop-'] {
-  overflow: hidden;
+  &::before {
+    content: "";
+    display: block;
+  }
 
-  &[class*='fit'] { width: 100%; }
+  & > *:not([class*='absolute']) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-  &[class*='cover'] img {
-    // https://css-tricks.com/almanac/properties/o/object-fit/
-    min-height: 100%;
-    object-fit: cover;
+  @each $name, $ratio in $ratios {
+    &[class*='#{$name}']::before { padding-top: ($ratio * 100) + 0%; }
   }
 }
 
-[class^='bg-'],
-[class*=' bg-'] {
-  &[class*='cover'] { background-size: cover; }
-}
-
-
-.hidden { @extend .d-hidden; }
+// Cool little trick thanks to:
+// http://www.mademyday.de/css-height-equals-width-with-pure-css.html.
