@@ -18,6 +18,10 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
+
+// Import mixins and defaults.
+@import '../util/index';
+
 [class^='ratio-'],
 [class*=' ratio-'] {
   width: 100%;

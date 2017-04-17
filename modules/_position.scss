@@ -19,10 +19,8 @@
 // IN THE SOFTWARE.
 
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
-
+// Import mixins and defaults.
+@import '../util/index';
 @include build-classes((
   'relative': (position, relative),
   'absolute': (position, absolute),
@@ -31,38 +29,16 @@
   'right': (right, $percentage-scale),
   'bottom': (bottom, $percentage-scale),
   'left': (left, $percentage-scale),
-  'z': (z-index, (
-    '5': 10001
-
-  )),
+  'z': (z-index, $z-scale),
   'zn': (
     '1': -1,
     '10': -10
-  )
+  ),
+  'origin': (transform, (
+    'center': translate3d(-50%, -50%, 0),
+    'top-left': translate3d(0, 0, 0),
+    'top-right': translate3d(0, 100%, 0),
+    'bottom-left': translate3d(100%, 0, 0),
+    'bottom-right': translate3d(100%, 100%, 0)
+  ))
 ), $breakpoints);
-
-
-// Origin in middle.
-// Use this when centering an element with absolute/fixed positioning.
-.origin-center { transform: translate3d(-50%, -50%, 0); }
-
-// Translate.
-@for $i from 0 through 10 {
-  .y-#{$i*10} { transform: translateY($i*10%); }
-  .yn-#{$i*10} { transform: translateY(-$i*10%); }
-  .x-#{$i*10} { transform: translateX($i*10%); }
-  .xn-#{$i*10} { transform: translateX(-$i*10%); }
-}
-
-@each $abbr, $breakpoint in $breakpoints {
-  @media (min-width: $breakpoint) {
-    .#{$abbr}-origin-center { transform: translate3d(-50%, -50%, 0); }
-
-    @for $i from 1 through 10 {
-      .#{$abbr}-y-#{$i*10} { transform: translateY($i*10%); }
-      .#{$abbr}-yn-#{$i*10} { transform: translateY(-$i*10%); }
-      .#{$abbr}-x-#{$i*10} { transform: translateX($i*10%); }
-      .#{$abbr}-xn-#{$i*10} { transform: translateX(-$i*10%); }
-    }
-  }
-}

@@ -18,9 +18,8 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
+// Import mixins and defaults.
+@import '../util/index';
 
 @include build-classes((
   'flex': (display, flex),
@@ -78,26 +77,11 @@
     'center': center,
     'between': space-between,
     'around': space-around
+  )),
+  'flex-order': (flex-order, (
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '4': 4
   ))
 ), $breakpoints);
-
-
-// Deprecation
-// -----------------------------------------------------------------------------
-
-// Additional flex settings.
-.flex-auto {
-  flex: 1 1 auto;
-  min-width: 0;
-  min-height: 0;
-}
-
-.flex-none { flex: none; }
-
-// Order
-.flex-first { order: -1; }
-.flex-last { order: 99999; }
-
-.flex-no-grow { flex-grow: 0; }
-
-.item-right { margin-left: auto; }

@@ -18,9 +18,8 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
+// Import mixins and defaults.
+@import '../util/index';
 
 // Main UI colors.
 @include build-colors($color-primary, 'primary');

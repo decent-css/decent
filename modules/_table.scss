@@ -18,9 +18,9 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
+// Import mixins and defaults.
+@import '../util/index';
+
 
 @include build-classes((
   'inline-table': (display, inline-table),

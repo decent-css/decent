@@ -18,18 +18,8 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
-
-$rem-base:  16px !default;
-$ratio:     1.5 !default;
-
-$font-weights: (
-  'regular': 400,
-  'semibold': 600,
-  'bold': 700
-) !default;
+// Import mixins and defaults.
+@import '../util/index';
 
 
 @include build-classes((
@@ -39,6 +29,7 @@ $font-weights: (
   'italic': (font-style, italic),
   'uppercase': (text-transform, uppercase),
   'capitalize': (text-transform, capitalize),
+  'lowercase': (text-transform, lowercase),
   'nowrap': (white-space, nowrap),
   'va': (vertical-align, (
     'baseline': baseline,
@@ -61,137 +52,12 @@ $font-weights: (
   ))
 ), $breakpoints);
 
+// Build the font scale.
+@include font-scale($ratio);
+@include typeset($typesets)
 
-// ----------------------------------------------------------------------------
 
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-// ----------------------------------------------------------------------------
-
-// Calculate the font sizes by scale.
-@for $i from -3 to 14 {
-  $value: $ratio;
-
-  @if $i == 0 {
-    .t-#{$i} { font-size: 1rem; }
-
-    @each $abbr, $breakpoint in $breakpoints {
-      .#{$abbr}-t-#{$i} {
-        @media (min-width: $breakpoint) { font-size: 1rem; }
-      }
-    }
-  }
-
-  @if $i < 0 {
-    @for $n from -1 to -1*($i) {
-      $value: $value/$ratio;
-    }
-
-    $rem-value: $value + rem;
-
-    .tn-#{$i*-1} { font-size: $rem-value; }
-
-    @each $abbr, $breakpoint in $breakpoints {
-      .#{$abbr}-tn-#{$i*-1} {
-        @media (min-width: $breakpoint) { font-size: $rem-value; }
-      }
-    }
-  }
-
-  @if $i > 0 {
-    @for $n from 1 to $i {
-      $value: $value * $ratio;
-    }
-
-    $rem-value: $value + rem;
-
-    .t-#{$i} { font-size: $rem-value; }
-
-    @each $abbr, $breakpoint in $breakpoints {
-      .#{$abbr}-t-#{$i} {
-        @media (min-width: $breakpoint) { font-size: $rem-value; }
-      }
-    }
-  }
-}
-
-// ----------------------------------------------------------------------------
-//
-// Deprecation
-// ----------------------------------------------------------------------------
-
-$default-type-family:   'Proxima Nova', serif !default;
-$default-type-weight:    400 !default;
-$default-type-color:     #010101 !default;
-$default-line-height:    1.5 !default;
-$default-type-tracking:  0 !default;
-
-$display-type-family:    'soleil', 'Helvetica', sans-serif !default;
-$display-type-transform: uppercase;
-$display-type-tracking:  0.1em !default;
-$display-type-weight:    700 !default;
-$display-line-height:    1.2 !default;
-
-// Because browsers do their own thing with fonts, let's
-// be more explicit in setting the defaults.
-body,
-html {
-  font-size: $rem-base;
-  font-family: $default-type-family;
-  line-height: $default-line-height;
-  font-weight: $default-type-weight;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  display: block;
-  line-height: $display-line-height;
-  font-weight: $default-type-weight;
-}
-
-ol,
-li,
-blockquote { line-height: $default-line-height; }
-ol { list-style-type: decimal; }
-
-p {
-  font-weight: $default-type-weight;
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-}
-
-input,
-textarea,
-button {
-  font-family: $display-type-family;
-  line-height: $default-line-height;
-  font-weight: $default-type-weight;
-}
-
-pre,
-code {
-  display: inline-block;
-  font-family: 'Courier New', monospace;
-  line-height: $default-line-height;
-}
-
-
-// Use the display font.
-.display {
-  font-family: $display-type-family;
-  font-weight: $display-type-weight;
-  line-height: $display-line-height;
-  text-transform: $display-type-transform;
-  letter-spacing: $display-type-tracking;
-}
-
-.tracked { letter-spacing: $default-type-tracking; }
-.strikethrough { text-decoration: line-through; }

@@ -19,9 +19,8 @@
 // IN THE SOFTWARE.
 
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
+// Import mixins and defaults.
+@import '../util/index';
 
 @each $interaction, $contexts in $interactions {
   [class^='hover-'],

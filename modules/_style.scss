@@ -18,80 +18,24 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+// Import mixins and defaults.
+@import '../util/index';
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
+// Build classes.
+@include build-classes((
+  'b': (border, $default-border-weight solid $default-border-color),
+  'bt': (border-top, $default-border-weight solid $default-border-color),
+  'br': (border-right, $default-border-weight solid $default-border-color),
+  'bb': (border-bottom, $default-border-weight solid $default-border-color),
+  'bl': (border-left, $default-border-weight solid $default-border-color),
+  'shadow': (box-shadow, $default-box-shadow),
+  'rounded': (border-radius, $default-border-radius)
+));
 
 
-// Default border weight.
-$default-border-radius: 2px !default;
-$default-border-weight: 1px !default;
-$thick-border-weight:   $default-border-weight*2 !default;
-
-$default-border-color:  #e8e9eb !default;
-$default-box-shadow:    0 1px 8px rgba(0, 0, 0, 0.1) !default;
-
-$color-primary:         #0bf !default;
-$color-secondary:       #ff8740 !default;
-$color-success:         #60aa53 !default;
-$color-error:           #f00 !default;
-$color-warning:         #e89414 !default;
-
-$black:                 #010101 !default;
-$white:                 #fefefe !default;
-
-$greys:                 lighten(#000, 10%) lighten(#000, 24%) lighten(#000, 38%) lighten(#000, 52%) lighten(#000, 64%) lighten(#000, 78%) lighten(#000, 92%) lighten(#000, 98%) !default;
-
-// Applies default border settings.
-.b { border: $default-border-weight solid $default-border-color; }
-.bt { border: $default-border-weight solid $default-border-color; }
-.br { border: $default-border-weight solid $default-border-color; }
-.bb { border: $default-border-weight solid $default-border-color; }
-.bl { border: $default-border-weight solid $default-border-color; }
-
-.b-thick { border: $thick-border-weight solid $default-border-color; }
-.bt-thick { border-top: $thick-border-weight solid $default-border-color; }
-.br-thick { border-right: $thick-border-weight solid $default-border-color; }
-.bb-thick { border-bottom: $thick-border-weight solid $default-border-color; }
-.bl-thick { border-left: $thick-border-weight solid $default-border-color; }
-
-.b-thick-primary { border: $thick-border-weight solid $color-primary; }
-.bt-thick-primary { border-top: $thick-border-weight solid $color-primary; }
-.br-thick-primary { border-right: $thick-border-weight solid $color-primary; }
-.bb-thick-primary { border-bottom: $thick-border-weight solid $color-primary; }
-.bl-thick-primary { border-left: $thick-border-weight solid $color-primary; }
-
-.b-primary { border: $default-border-weight solid $color-primary; }
-.bt-primary { border-top: $default-border-weight solid $color-primary; }
-.br-primary { border-right: $default-border-weight solid $color-primary; }
-.bb-primary { border-bottom: $default-border-weight solid $color-primary; }
-.bl-primary { border-left: $default-border-weight solid $color-primary; }
-
-.b-secondary { border: $default-border-weight solid $color-secondary; }
-.bt-secondary { border-top: $default-border-weight solid $color-secondary; }
-.br-secondary { border-right: $default-border-weight solid $color-secondary; }
-.bb-secondary { border-bottom: $default-border-weight solid $color-secondary; }
-.bl-secondary { border-left: $default-border-weight solid $color-secondary; }
-
-.b-success { border: $default-border-weight solid $color-success; }
-.bt-success { border-top: $default-border-weight solid $color-success; }
-.br-success { border-right: $default-border-weight solid $color-success; }
-.bb-success { border-bottom: $default-border-weight solid $color-success; }
-.bl-success { border-left: $default-border-weight solid $color-success; }
-
-.b-warning { border: $default-border-weight solid $color-warning; }
-.bt-warning { border-top: $default-border-weight solid $color-warning; }
-.br-warning { border-right: $default-border-weight solid $color-warning; }
-.bb-warning { border-bottom: $default-border-weight solid $color-warning; }
-.bl-warning { border-left: $default-border-weight solid $color-warning; }
-
-.b-error { border: $default-border-weight solid $color-error; }
-.bt-error { border-top: $default-border-weight solid $color-error; }
-.br-error { border-right: $default-border-weight solid $color-error; }
-.bb-error { border-bottom: $default-border-weight solid $color-error; }
-.bl-error { border-left: $default-border-weight solid $color-error; }
-
+// ============================================================================
+// Refactor Source
+// ----------------------------------------------------------------------------
 .b-black { border: $default-border-weight solid $black; }
 .bt-black { border-top: $default-border-weight solid $black; }
 .br-black { border-right: $default-border-weight solid $black; }
@@ -103,18 +47,6 @@ $greys:                 lighten(#000, 10%) lighten(#000, 24%) lighten(#000, 38%)
 .br-white { border-right: $default-border-weight solid $white; }
 .bb-white { border-bottom: $default-border-weight solid $white; }
 .bl-white { border-left: $default-border-weight solid $white; }
-
-.b-thick-black { border: $thick-border-weight solid $black; }
-.bt-thick-black { border-top: $thick-border-weight solid $black; }
-.br-thick-black { border-right: $thick-border-weight solid $black; }
-.bb-thick-black { border-bottom: $thick-border-weight solid $black; }
-.bl-thick-black { border-left: $thick-border-weight solid $black; }
-
-.b-thick-white { border: $thick-border-weight solid $white; }
-.bt-thick-white { border-top: $thick-border-weight solid $white; }
-.br-thick-white { border-right: $thick-border-weight solid $white; }
-.bb-thick-white { border-bottom: $thick-border-weight solid $white; }
-.bl-thick-white { border-left: $thick-border-weight solid $white; }
 
 @each $grey in $greys {
   $i: index($greys, $grey);
@@ -130,46 +62,4 @@ $greys:                 lighten(#000, 10%) lighten(#000, 24%) lighten(#000, 38%)
   .br-thick-#{$i} { border-right: $thick-border-weight solid $grey; }
   .bb-thick-#{$i} { border-bottom: $thick-border-weight solid $grey; }
   .bl-thick-#{$i} { border-left: $thick-border-weight solid $grey; }
-}
-
-// Shadows.
-.shadow { box-shadow: $default-box-shadow; }
-
-// Rounding.
-.rounded { border-radius: $default-border-radius; }
-
-[class^='rounded-'],
-[class*=' rounded-'] {
-  border-radius: 0;
-
-  &[class*='left'] {
-    border-top-left-radius: $default-border-radius;
-    border-bottom-left-radius: $default-border-radius;
-  }
-
-  &[class*='right'] {
-    border-top-right-radius: $default-border-radius;
-    border-bottom-right-radius: $default-border-radius;
-  }
-
-  &[class*='top-left'] {
-    border-top-left-radius: $default-border-radius;
-    border-bottom-left-radius: 0;
-  }
-
-  &[class*='top-right'] {
-    border-top-right-radius: $default-border-radius;
-    border-bottom-right-radius: 0;
-  }
-
-  &[class*='bottom-right'] {
-    border-bottom-right-radius: $default-border-radius;
-    border-top-left-radius: 0;
-  }
-
-  &[class*='bottom-left'] {
-    border-bottom-left-radius: $default-border-radius;
-    border-top-right-radius: 0;
-  }
-
 }

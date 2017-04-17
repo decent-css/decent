@@ -19,9 +19,8 @@
 // IN THE SOFTWARE.
 
 
-// Import mixins.
-@import '../util/mixins';
-@import '../util/defaults';
+// Import mixins and defaults.
+@import '../util/index';
 
 .container {
   max-width: $container-width;
@@ -72,23 +71,4 @@
       }
     }
   }
-}
-
-// ----------------------------------------------------------------------------
-// Deprecation.
-// ----------------------------------------------------------------------------
-
-// v1.0.2
-// ----------------------------------------------------------------------------
-// We're removing the `.clearfix` extend from `.container` because it made the
-// assumption that the container would have floated elements.
-.container {
-  @extend .clearfix;
-}
-// We're also removing the `.row` class because it was essentially a duplicate
-// of the `.clearfix`; and `.clearfix` is more descriptive what the class
-// actually does.
-.row {
-  @extend .clearfix;
-  display: block;
 }

@@ -99,3 +99,88 @@
     }
   }
 }
+
+@mixin typeset($sets) {
+
+  @each $set, $settings in $sets {
+
+    @if $set == 'default' {
+      body,
+      input,
+      textarea,
+      button {
+        @each $setting, $value in $settings {
+          #{$setting}: $value;
+        }
+      }
+
+      ol,
+      li,
+      blockquote { line-height: map-get($settings, 'line-height') }
+    }
+    @elseif $set == 'monospace' {
+      pre,
+      code {
+        @each $setting, $value in $settings {
+          #{$setting}: $value;
+        }
+      }
+    }
+    @else {
+      .#{$set} {
+        @each $setting, $value in $settings {
+          #{$setting}: $value;
+        }
+      }
+    }
+  }
+}
+
+@mixin font-scale($ratio) {
+  // Calculate the font sizes by scale.
+  @for $i from -3 to 14 {
+    $value: $ratio;
+
+    @if $i == 0 {
+      .t-#{$i} { font-size: 1rem; }
+
+      @each $abbr, $breakpoint in $breakpoints {
+        .#{$abbr}-t-#{$i} {
+          @media (min-width: $breakpoint) { font-size: 1rem; }
+        }
+      }
+    }
+
+    @if $i < 0 {
+      @for $n from -1 to -1*($i) {
+        $value: $value/$ratio;
+      }
+
+      $rem-value: $value + rem;
+
+      .tn-#{$i*-1} { font-size: $rem-value; }
+
+      @each $abbr, $breakpoint in $breakpoints {
+        .#{$abbr}-tn-#{$i*-1} {
+          @media (min-width: $breakpoint) { font-size: $rem-value; }
+        }
+      }
+    }
+
+    @if $i > 0 {
+      @for $n from 1 to $i {
+        $value: $value * $ratio;
+      }
+
+      $rem-value: $value + rem;
+
+      .t-#{$i} { font-size: $rem-value; }
+
+      @each $abbr, $breakpoint in $breakpoints {
+        .#{$abbr}-t-#{$i} {
+          @media (min-width: $breakpoint) { font-size: $rem-value; }
+        }
+      }
+    }
+  }
+}

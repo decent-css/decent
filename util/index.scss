@@ -18,43 +18,7 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-// Import utils.
-@import '../util/index';
 
-@include build-classes((
-  'none': (display, none),
-  'inline': (display, inline),
-  'block': (display, block),
-  'inline-block': (display, inline-block),
-  'o': (overflow, (
-    'auto': auto,
-    'visible': visible,
-    'hidden': hidden
-  ))
-), $breakpoints);
-
-
-// ============================================================================
-// Deprecation
-// sass-lint:disable-all
-// ----------------------------------------------------------------------------
-.no-wrap { white-space: nowrap; }
-.d-hidden, .hidden { visibility: hidden; pointer-events: none; position: absolute; left: -300%; }
-.d-inline-block { display: inline-block; }
-.d-block { display: block; }
-.d-none { display: none; }
-.d-full { width: 100%; height: 100vh; }
-.crop, [class^='crop-'], [class*=' crop-'] {
-  overflow: hidden;
-  &[class*='fit'] { width: 100%; }
-  &[class*='cover'] img {
-    min-height: 100%;
-    object-fit: cover;
-  }
-}
-[class^='bg-'],
-[class*=' bg-'] {
-  &[class*='cover'] { background-size: cover; }
-}
-// ----------------------------------------------------------------------------
-// sass-lint:enable-all
+@import 'defaults';
+@import 'mixins';
+@import 'base';
