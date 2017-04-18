@@ -1,108 +1,70 @@
-// Copyright (c) 2016-2017, Christian Griffith & Sean Washington.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
+// -
+// Decent
+// https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
-// Defaults
-// ----------------------------------------------------------------------------
-$breakpoints: (
-  sm: '(min-width: 600px)',
-  md: '(min-width: 768px)',
-  lg: '(min-width: 1280px)',
-  xl: '(min-width: 1440px)'
-) !default;
 
-// Container settings
-// ----------------------------------------------------------------------------
-.flex { display: flex; }
-.flex-column { flex-direction: column; }
-.flex-row { flex-direction: row; }
-.flex-wrap { flex-wrap: wrap; }
-.flex-nowrap { flex-wrap: nowrap; }
+@import '../util/index';
 
-// Items alignment
-// ----------------------------------------------------------------------------
-.items-center { align-items: center; }
-.items-baseline { align-items: baseline; }
-.items-stretch { align-items: stretch; }
-.items-start { align-items: flex-start; }
-.items-end { align-items: flex-end; }
-
-// Item Alignment
-// ----------------------------------------------------------------------------
-.item-right { margin-left: auto; }
-
-// Self Alignment
-// ----------------------------------------------------------------------------
-.self-center { align-self: center; }
-.self-baseline { align-self: baseline; }
-.self-stretch { align-self: stretch; }
-.self-start { align-self: flex-start; }
-.self-end { align-self: flex-end; }
-
-// Content Alignment
-// ----------------------------------------------------------------------------
-.content-start { align-content: flex-start; }
-.content-end { align-content: flex-end; }
-.content-center { align-content: center; }
-.content-stretch { align-content: stretch; }
-
-// Justify
-// -----------------------------------------------------------------------------
-.justify-between { justify-content: space-between; }
-.justify-around { justify-content: space-around; }
-.justify-center { justify-content: center; }
-.justify-end { justify-content: flex-end; }
-
-// Additional flex settings.
-// -----------------------------------------------------------------------------
-.flex-auto {
-  flex: 1 1 auto;
-  min-width: 0;
-  min-height: 0;
-}
-
-.flex-none { flex: none; }
-
-// Order
-// -----------------------------------------------------------------------------
-.flex-first { order: -1; }
-.flex-last { order: 99999; }
-
-// Grow
-// -----------------------------------------------------------------------------
-.flex-grow { flex: 1 0 auto; }
-.flex-no-grow { flex-grow: 0; }
-
-@each $abbr, $breakpoint in $breakpoints {
-  @media #{$breakpoint} {
-    .#{$abbr}-flex { display: flex; }
-    .#{$abbr}-flex-column { flex-direction: column; }
-    .#{$abbr}-flex-row { flex-direction: row; }
-    .#{$abbr}-flex-wrap { flex-wrap: wrap; }
-    .#{$abbr}-flex-nowrap { flex-wrap: nowrap; }
-    .#{$abbr}-items-center { align-items: center; }
-    .#{$abbr}-items-end { align-items: flex-end; }
-    .#{$abbr}-item-right { margin-left: auto; }
-    .#{$abbr}-justify-between { justify-content: space-between; }
-    .#{$abbr}-justify-around { justify-content: space-around; }
-    .#{$abbr}-justify-center { justify-content: center; }
-    .#{$abbr}-justify-end { justify-content: flex-end; }
-  }
-}
+@include build-classes((
+  'flex': (display, flex),
+  'inline-flex': (display, inline-flex),
+  'flex-column': (flex-direction, (
+    'default': column,
+    'reverse': column-reverse
+  )),
+  'flex-row':  (flex-direction, (
+    'default': row,
+    'reverse': row-reverse
+  )),
+  'flex-wrap': (flex-wrap, wrap),
+  'flex-nowrap': (flex-wrap, nowrap),
+  'flex-grow': (flex-grow, (
+    'default': 1,
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3
+  )),
+  'flex-shrink': (flex-shrink, (
+    'default': 1,
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3
+  )),
+  'items': (align-items, (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'baseline': baseline,
+    'stretch': stretch
+  )),
+  'justify': (justify-content, (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around
+  )),
+  'self': (align-self, (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'baseline': baseline,
+    'stretch': stretch
+  )),
+  'content': (align-content, (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around
+  )),
+  'flex-order': (order, (
+    '0': 0,
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4
+  ))
+), $breakpoints);

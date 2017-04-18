@@ -1,5 +1,38 @@
-$reset-inputs: true !default;
+// -
+// Decent
+// https://github.com/decent-css/decent
+// ----------------------------------------------------------------------------
 
+@import '../util/index';
+
+// Reset the inputs (default: true)
+@if $reset-inputs {
+  // Form Resets.
+  // This allows us to define the styles ourselves – except
+  // for radios and checkboxes where it may be useful to have
+  // the native elements.
+  textarea,
+  input[type='email'],
+  input[type='number'],
+  input[type='search'],
+  input[type='text'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='password']
+  button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+// Reset 
+// (http://meyerweb.com/eric/tools/css/reset/)
 html,
 body,
 div,
@@ -130,25 +163,4 @@ q::after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-@if $reset-inputs {
-  // Form Resets.
-  // This allows us to define the styles ourselves – except
-  // for radios and checkboxes where it may be useful to have 
-  // the native elements.
-  textarea,
-  input[type='email'],
-  input[type='number'],
-  input[type='search'],
-  input[type='text'],
-  input[type='tel'],
-  input[type='url'],
-  input[type='password']
-  button {
-    appearance: none;
-    -webkit-appearance: none;
-    border: none;
-    box-shadow: none;
-  }
 }

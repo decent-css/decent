@@ -1,194 +1,50 @@
-// Copyright (c) 2016-2017, Christian Griffith & Sean Washington.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
+// -
+// Decent
+// https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
-// Defaults
-// ----------------------------------------------------------------------------
-$breakpoints: (
-  sm: '(min-width: 600px)',
-  md: '(min-width: 768px)',
-  lg: '(min-width: 1280px)',
-  xl: '(min-width: 1440px)'
-) !default;
 
-$rem-base:              16px !default;
-$ratio:                 1.5 !default;
+@import '../util/index';
 
-$default-type-family:   'Proxima Nova', serif !default;
-$default-type-weight:    400 !default;
-$default-type-color:     #010101 !default;
-$default-line-height:    1.5 !default;
-$default-type-tracking:  0 !default;
+@include build-classes((
+  'tw': (font-weight, $font-weights),
+  'line-through': (text-decoration, line-through),
+  'underline': (text-decoration, underline),
+  'italic': (font-style, italic),
+  'uppercase': (text-transform, uppercase),
+  'capitalize': (text-transform, capitalize),
+  'lowercase': (text-transform, lowercase),
+  'nowrap': (white-space, nowrap),
+  'va': (vertical-align, (
+    'baseline': baseline,
+    'sub': sub,
+    'super': super,
+    'text-top': text-top,
+    'text-bottom': text-bottom,
+    'middle': middle,
+    'top': top,
+    'bottom': bottom
+  ))
+));
 
-$display-type-family:    'soleil', 'Helvetica', sans-serif !default;
-$display-type-transform: uppercase;
-$display-type-tracking:  0.1em !default;
-$display-type-weight:    700 !default;
-$display-line-height:    1.2 !default;
+// Responsive.
+@include build-classes((
+  'ta': (text-align, (
+    'center': center,
+    'left': left,
+    'right': right
+  ))
+), $breakpoints);
 
-$tw-extra-light:        100 !default;
-$tw-light:              200 !default;
-$tw-regular:            300 !default;
-$tw-medium:             400 !default;
-$tw-semibold:           500 !default;
-$tw-bold:               600 !default;
+// Build the font scale.
+@include font-scale($ratio);
+@include typeset($typesets)
 
-// Because browsers do their own thing with fonts, let's
-// be more explicit in setting the defaults.
 body,
 html {
   font-size: $rem-base;
-  font-family: $default-type-family;
-  line-height: $default-line-height;
-  font-weight: $default-type-weight;
 }
-
-h1,
-h2,
-h3,
-h4 {
-  display: block;
-  line-height: $display-line-height;
-  font-weight: $default-type-weight;
-}
-
-ol,
-li,
-blockquote { line-height: $default-line-height; }
-ol { list-style-type: decimal; }
-
-p {
-  font-weight: $default-type-weight;
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-}
-
-input,
-textarea,
-button {
-  font-family: $display-type-family;
-  line-height: $default-line-height;
-  font-weight: $default-type-weight;
-}
-
-pre,
-code {
-  @extend .tn-1;
-
-  display: inline-block;
-  font-family: 'Courier New', monospace;
-  line-height: $default-line-height;
-}
-
-// Modifiers.
-// Type weight modifiers.
-.tw-bold { font-weight: $tw-bold; }
-.tw-semibold { font-weight: $tw-semibold; }
-.tw-medium { font-weight: $tw-medium; }
-.tw-regular { font-weight: $tw-regular; }
-.tw-light { font-weight: $tw-light; }
-.tw-extra-light { font-weight: $tw-extra-light; }
-
-// Style modifiers.
-// We omit the prefix `t` here because these adjectives can
-// only apply to type.
-.strikethrough { text-decoration: line-through; }
-.underline { text-decoration: underline; }
-.italic { font-style: italic; }
-
-.uppercase { text-transform: uppercase; }
-.tracked { letter-spacing: $default-type-tracking; }
 
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-// Use the display font.
-.display {
-  font-family: $display-type-family;
-  font-weight: $display-type-weight;
-  line-height: $display-line-height;
-  text-transform: $display-type-transform;
-  letter-spacing: $display-type-tracking;
-}
-
-// Alignment modifiers.
-.ta-center { text-align: center; }
-.ta-left { text-align: left; }
-.ta-right { text-align: right; }
-
-@each $abbr, $breakpoint in $breakpoints {
-  @media #{$breakpoint} {
-    .#{$abbr}-ta-center { text-align: center; }
-    .#{$abbr}-ta-left { text-align: left; }
-    .#{$abbr}-ta-right { text-align: right; }
-  }
-}
-
-// Calculate the font sizes by scale.
-@for $i from -3 to 14 {
-  $value: $ratio;
-
-  @if $i == 0 {
-    .t-#{$i} { font-size: 1rem; }
-
-    @each $abbr, $breakpoint in $breakpoints {
-      .#{$abbr}-t-#{$i} {
-        @media #{$breakpoint} { font-size: 1rem; }
-      }
-    }
-  }
-
-  @if $i < 0 {
-    @for $n from -1 to -1*($i) {
-      $value: $value/$ratio;
-    }
-
-    $rem-value: $value + rem;
-
-    .tn-#{$i*-1} { font-size: $rem-value; }
-
-    @each $abbr, $breakpoint in $breakpoints {
-      .#{$abbr}-tn-#{$i*-1} {
-        @media #{$breakpoint} { font-size: $rem-value; }
-      }
-    }
-  }
-
-  @if $i > 0 {
-    @for $n from 1 to $i {
-      $value: $value * $ratio;
-    }
-
-    $rem-value: $value + rem;
-
-    .t-#{$i} { font-size: $rem-value; }
-
-    @each $abbr, $breakpoint in $breakpoints {
-      .#{$abbr}-t-#{$i} {
-        @media #{$breakpoint} { font-size: $rem-value; }
-      }
-    }
-  }
 }

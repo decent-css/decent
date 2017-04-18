@@ -1,57 +1,19 @@
-// Copyright (c) 2016-2017, Christian Griffith & Sean Washington.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
+// -
+// Decent
+// https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
-// Defaults
-// ----------------------------------------------------------------------------
-$breakpoints: (
-  sm: '(min-width: 600px)',
-  md: '(min-width: 768px)',
-  lg: '(min-width: 1280px)',
-  xl: '(min-width: 1440px)'
-) !default;
 
-$container-width: 90rem !default;
-$columns: 12 !default;
+@import '../util/index';
 
-
-// Grid System
-// ----------------------------------------------------------------------------
 .container {
   max-width: $container-width;
   margin-left: auto;
   margin-right: auto;
 }
 
-.clearfix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
 [class^='col-'],
 [class*='col-'] {
   width: 100%;
-  box-sizing: border-box;
 
   // If we're clearfix-ing, it's because we intend to use float columns.
   .clearfix & { float: left; }
@@ -60,47 +22,13 @@ $columns: 12 !default;
 @for $i from 1 through $columns {
   .col-#{$i} { width: ($i/$columns * 100%); }
   .push-#{$i} { margin-left: ($i/$columns * 100%); }
-  .pull-#{$i} { margin-left: -($i/$columns * 100%); }
-  .pull-right-#{$i} { margin-right: -($i/$columns * 100%); }
-  .push-0,
-  .pull-0 {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 @each $abbr, $breakpoint in $breakpoints {
-  @media #{$breakpoint} {
+  @media (min-width: $breakpoint) {
     @for $i from 1 through $columns {
       .#{$abbr}-col-#{$i} { width: ($i/$columns * 100%); }
       .#{$abbr}-push-#{$i} { margin-left: ($i/$columns * 100%); }
-      .#{$abbr}-pull-#{$i} { margin-left: -($i/$columns * 100%); }
-      .#{$abbr}-pull-right-#{$i} { margin-right: -($i/$columns * 100%); }
-
-      .#{$abbr}-push-0,
-      .#{$abbr}-pull-0 {
-        margin-left: 0;
-        margin-right: 0;
-      }
     }
   }
-}
-
-// ----------------------------------------------------------------------------
-// Deprecation.
-// ----------------------------------------------------------------------------
-
-// v1.0.2
-// ----------------------------------------------------------------------------
-// We're removing the `.clearfix` extend from `.container` because it made the
-// assumption that the container would have floated elements.
-.container {
-  @extend .clearfix;
-}
-// We're also removing the `.row` class because it was essentially a duplicate
-// of the `.clearfix`; and `.clearfix` is more descriptive what the class
-// actually does.
-.row {
-  @extend .clearfix;
-  display: block;
 }

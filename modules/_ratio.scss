@@ -1,0 +1,30 @@
+// -
+// Decent
+// https://github.com/decent-css/decent
+// ----------------------------------------------------------------------------
+
+@import '../util/index';
+
+[class^='ratio-'],
+[class*=' ratio-'] {
+  width: 100%;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: block;
+  }
+
+  & > *:not([class*='absolute']) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  @each $name, $ratio in $ratios {
+    &[class*='#{$name}']::before { padding-top: ($ratio * 100) + 0%; }
+  }
+}
+
+// Cool little trick thanks to:
+// http://www.mademyday.de/css-height-equals-width-with-pure-css.html.
