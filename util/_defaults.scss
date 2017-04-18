@@ -127,20 +127,22 @@ $greys:             hsl(27, 1, 10)
 
 // Modular Scale
 $modular-scale: (
-  '0': 0,
-  '1': 0.5rem,
-  '2': 1rem,
-  '3': 1.75rem,
-  '4': 3rem,
-  '5': 5rem,
-  '6': 9rem,
-  '7': 16rem,
-  '8': 28rem,
+  '0':  0,
+  '1':  0.5rem,
+  '2':  1rem,
+  '3':  1.75rem,
+  '4':  3rem,
+  '5':  5rem,
+  '6':  9rem,
+  '7':  16rem,
+  '8':  28rem,
+  '9':  48rem,
+  '10': 72rem
 ) !default;
 
 // Percentage Scale
 $percentage-scale: (
-  '0':   0%,
+  '0':   0,
   '10':  10%,
   '20':  20%,
   '30':  30%,
@@ -181,13 +183,20 @@ $ratios: (
 ) !default;
 
 // Borders
-$default-border-radius: 2px !default;
 $default-border-weight: 1px !default;
 $thick-border-weight:   $default-border-weight*2 !default;
 $default-border-color:  #e8e9eb !default;
 
+$border-radii: (
+  'default': 2px
+) !default;
+
+
 // Shadows
-$default-box-shadow:    0 1px 8px rgba(0, 0, 0, 0.1) !default;
+$shadows: (
+  'default': 0 1px 8px rgba(0, 0, 0, 0.1),
+  'diffused':  0 2px 16px rgba(0, 0, 0, 0.1)
+) !default;
 
 // Overlay
 $overlays: (

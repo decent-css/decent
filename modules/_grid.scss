@@ -11,14 +11,6 @@
   margin-right: auto;
 }
 
-.clearfix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
 [class^='col-'],
 [class*='col-'] {
   width: 100%;
@@ -30,13 +22,6 @@
 @for $i from 1 through $columns {
   .col-#{$i} { width: ($i/$columns * 100%); }
   .push-#{$i} { margin-left: ($i/$columns * 100%); }
-  .pull-#{$i} { margin-left: -($i/$columns * 100%); }
-  .pull-right-#{$i} { margin-right: -($i/$columns * 100%); }
-  .push-0,
-  .pull-0 {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 @each $abbr, $breakpoint in $breakpoints {
@@ -44,14 +29,6 @@
     @for $i from 1 through $columns {
       .#{$abbr}-col-#{$i} { width: ($i/$columns * 100%); }
       .#{$abbr}-push-#{$i} { margin-left: ($i/$columns * 100%); }
-      .#{$abbr}-pull-#{$i} { margin-left: -($i/$columns * 100%); }
-      .#{$abbr}-pull-right-#{$i} { margin-right: -($i/$columns * 100%); }
-
-      .#{$abbr}-push-0,
-      .#{$abbr}-pull-0 {
-        margin-left: 0;
-        margin-right: 0;
-      }
     }
   }
 }

@@ -12,3 +12,11 @@
     'right': right
   ))
 ), $breakpoints);
+
+.clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

@@ -17,7 +17,7 @@
   'mt': (margin-top, $modular-scale),
   'mr': (margin-right, $modular-scale),
   'mb': (margin-bottom, $modular-scale),
-  'ml': (margin-left, $modular-scale),
+  'ml': (margin-left,  map-merge($modular-scale, ('auto': auto))),
   'mx': ((margin-left, margin-right), map-merge($modular-scale, ('auto': auto))),
   'my': ((margin-top, margin-bottom), $modular-scale)
 ), $breakpoints);
