@@ -16,10 +16,8 @@
     'default': row,
     'reverse': row-reverse
   )),
-  'flex-wrap': (flex-wrap, (
-    'default': wrap,
-    'nowrap':  nowrap
-  )),
+  'flex-wrap': (flex-wrap, wrap),
+  'flex-nowrap': (flex-wrap, nowrap),
   'flex-grow': (flex-grow, (
     'default': 1,
     '0': 0,

@@ -75,6 +75,21 @@ $typesets: (
 $container-width: 80rem !default;
 $columns: 12 !default;
 
+
+$colors: (
+  'primary': (
+    'default': hsl(27, 100, 53),
+    'alt':     hsl(27, 100, 63),
+    'alt-2':   hsl(27, 100, 73),
+    'alt-3':   hsl(27, 100, 83)
+  )
+) !default;
+
+$greyscale: (
+  'black': #010101,
+  'white': #fefefe
+) !default;
+
 // Colors
 $color-primary:     hsl(27, 100, 53)
                     hsl(27, 100, 63)
