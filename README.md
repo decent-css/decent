@@ -1,6 +1,6 @@
 # Decent.scss
 
-Decent is a flexible, functional CSS library for building _iterally_ anything. Designed to be as flexible and configurable as possible, it can be used for building anything from prototypes to production applications and websites.
+Decent is a flexible, functional CSS library for building _literally_ anything. Designed to be as flexible and configurable as possible, it can be used for building anything from prototypes to production applications and websites.
 
 ## Rationale
 
@@ -11,7 +11,7 @@ Here's what convinced us:
 ### No Side Effects
 Although the cascade can be a useful thing, more often than not it becomes a hinderance in long term projects or with projects that have multiple developers working in the code base.
 
-### Composable 
+### Composable
 Think composition over inheritance. With Decent.scss you compose your ui out of already existing blocks (think legos) of css.
 
 ### Consistent
