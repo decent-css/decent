@@ -4,3 +4,4 @@ css/
 npm-debug.log
 static
 public
+dist

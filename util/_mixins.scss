@@ -9,7 +9,7 @@
   }
 }
 
-@mixin parse-class-map($classes, $bp: null) {
+@mixin parse-class-map($classes, $bp: null, $negative: false) {
   @each $class, $settings in $classes {
     $classname: '';
 
@@ -22,6 +22,11 @@
 
     @if type-of(nth($settings, 2)) == 'map' {
       @each $key, $value in nth($settings, 2) {
+
+        @if $negative {
+          $value: -$value;
+        }
+
         @if $key != 'default' {
           .#{$classname}-#{$key} {
             @include print-styles(nth($settings, 1), $value)
@@ -42,15 +47,15 @@
   }
 }
 
-@mixin build-classes($classes, $breakpoints: null) {
-  @include parse-class-map($classes);
+@mixin build-classes($classes, $breakpoints: null, $negative: false) {
+  @include parse-class-map($classes, null, $negative);
 
   @if $breakpoints {
     @for $i from 1 to length($breakpoints)+1 {
       $key: nth(map-keys($breakpoints), $i);
 
       @media (min-width: map-get($breakpoints, $key)) {
-        @include parse-class-map($classes, $key);
+        @include parse-class-map($classes, $key, $negative);
       }
     }
   }
@@ -101,22 +106,35 @@
 }
 
 @mixin typeset($sets) {
-
   @each $set, $settings in $sets {
-
     @if $set == 'default' {
       body,
       input,
       textarea,
       button {
-        @each $setting, $value in $settings {
-          #{$setting}: $value;
-        }
+        font-family: map-get($settings, 'font-family');
+        font-weight: map-get($settings, 'font-weight');
+        text-transform: map-get($settings, 'text-transform');
+        line-height: map-get($settings, 'line-height-body');
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: map-get($settings, 'line-height-heading');
+      }
+
+      p {
+        line-height: map-get($settings, 'line-height-body');
+        font-weight: map-get($settings, 'font-weight')
       }
 
       ol,
       li,
-      blockquote { line-height: map-get($settings, 'line-height') }
+      blockquote { line-height: map-get($settings, 'line-height-body') }
     }
     @elseif $set == 'monospace' {
       pre,
