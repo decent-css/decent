@@ -14,7 +14,7 @@ Although the cascade can be a useful thing, more often than not it becomes a hin
 ### Composable 
 Think composition over inheritance. With Decent.scss you compose your ui out of already existing blocks (think legos) of css.
 
-### Consist
+### Consistent
 Functional CSS helps to facility consistency in your end products. With Decent.scss, all of the values for whitespace, font sizes, etc are all calculated from the same settings. This means that there are no more magic numbers hiding out in your stylesheets and that consistency is as easy as using the generated classes.
 
 ### Clear & Easy to follow
