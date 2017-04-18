@@ -1,0 +1,14 @@
+machine:
+  timezone:
+    America/Los_Angeles # Set the timezone
+
+  # Add some environment variables
+  environment:
+    CIRCLE_ENV: test
+
+## Customize test commands
+test:
+  post:
+    - npm test: # add an extra test type
+        environment:
+          NODE_ENV: test
