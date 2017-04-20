@@ -5,7 +5,7 @@
 
 @import '../util/index';
 
-@include build-colors($colors);
+@include build-colors($colorsets);
 @include build-greyscale($greyscale);
 
 @for $i from 0 through 10 {
