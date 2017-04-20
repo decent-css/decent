@@ -14,10 +14,10 @@
   'bottom': (bottom, $percentage-scale),
   'left': (left, $percentage-scale),
   'z': (z-index, $z-scale),
-  'zn': (
+  'zn': (z-index, (
     '1': -1,
     '10': -10
-  ),
+  )),
   'origin': (transform, (
     'center': translate3d(-50%, -50%, 0),
     'top-left': translate3d(0, 0, 0),

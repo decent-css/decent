@@ -41,7 +41,7 @@
 
 body,
 html {
-  font-size: $rem-base;
+  font-size: $rem-base !important;
 }
 
 .antialiased {
