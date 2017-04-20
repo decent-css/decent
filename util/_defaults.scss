@@ -21,11 +21,14 @@
 // REM Base
 $rem-base:  16px !default;
 
+// Font Scale Ratio
+$ratio: 1.5 !default;
+
 // Reset Inputs
 $reset-inputs: true !default;
 
 // Border Box Everything
-$border-box: true !default
+$border-box: true !default;
 
 // Breakpoints
 $breakpoints: (
@@ -34,9 +37,6 @@ $breakpoints: (
   lg: 1280px,
   xl: 1440px
 ) !default;
-
-// Font Scale Ratio
-$ratio: 1.5 !default;
 
 // Font Weights
 $font-weights: (
