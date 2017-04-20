@@ -10,6 +10,9 @@
     "mocha": "mocha test/decent",
     "test": "brunch build && npm run mocha && npm run karma"
   },
+  "pre-push": [
+    "test"
+  ],
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
     "brunch": "^2.10.9",
@@ -25,6 +28,8 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-webpack": "^2.0.3",
     "mocha": "^3.2.0",
+    "pre-commit": "^1.2.2",
+    "pre-push": "^0.1.1",
     "sass-brunch": "^2.10.4",
     "sass-lint-brunch": "^1.1.0",
     "style-loader": "^0.16.1",
