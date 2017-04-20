@@ -5,27 +5,8 @@
 
 @import '../util/index';
 
-@include build-colors($color-primary, 'primary');
-@include build-colors($color-secondary, 'secondary');
-@include build-colors($color-error, 'error');
-@include build-colors($color-warning, 'warning');
-@include build-colors($color-success, 'success');
-
-@each $grey in $greys {
-  $i: index($greys, $grey);
-
-  @if $i == 1 {
-    .cg-black { color: $black; }
-    .cg-white { color: $white; }
-    .cbgg-black { background-color: $black; }
-    .cbgg-white { background-color: $white; }
-  }
-
-  // The use of g here notes that these colors are a part of
-  // the greys that are generated
-  .cg-#{$i} { color: $grey; }
-  .cbgg-#{$i} { background-color: $grey; }
-}
+@include build-colors($colors);
+@include build-greyscale($greyscale);
 
 @for $i from 0 through 10 {
   .a-#{$i} { opacity: $i/10; }

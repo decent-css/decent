@@ -14,35 +14,3 @@
   'shadow': (box-shadow, $shadows),
   'rounded': (border-radius, $border-radii)
 ));
-
-
-// ============================================================================
-// Refactor Source
-// ----------------------------------------------------------------------------
-.b-black { border: $default-border-weight solid $black; }
-.bt-black { border-top: $default-border-weight solid $black; }
-.br-black { border-right: $default-border-weight solid $black; }
-.bb-black { border-bottom: $default-border-weight solid $black; }
-.bl-black { border-left: $default-border-weight solid $black; }
-
-.b-white { border: $default-border-weight solid $white; }
-.bt-white { border-top: $default-border-weight solid $white; }
-.br-white { border-right: $default-border-weight solid $white; }
-.bb-white { border-bottom: $default-border-weight solid $white; }
-.bl-white { border-left: $default-border-weight solid $white; }
-
-@each $grey in $greys {
-  $i: index($greys, $grey);
-
-  .b-#{$i} { border: $default-border-weight solid $grey; }
-  .bt-#{$i} { border-top: $default-border-weight solid $grey; }
-  .br-#{$i} { border-right: $default-border-weight solid $grey; }
-  .bb-#{$i} { border-bottom: $default-border-weight solid $grey; }
-  .bl-#{$i} { border-left: $default-border-weight solid $grey; }
-
-  .b-thick-#{$i} { border: $thick-border-weight solid $grey; }
-  .bt-thick-#{$i} { border-top: $thick-border-weight solid $grey; }
-  .br-thick-#{$i} { border-right: $thick-border-weight solid $grey; }
-  .bb-thick-#{$i} { border-bottom: $thick-border-weight solid $grey; }
-  .bl-thick-#{$i} { border-left: $thick-border-weight solid $grey; }
-}

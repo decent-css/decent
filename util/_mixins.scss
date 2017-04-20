@@ -61,21 +61,36 @@
   }
 }
 
-@mixin build-colors($colorset, $name) {
-  @each $shade in $colorset {
-    $i: index($colorset, $shade)-1;
+@mixin build-colors($colors) {
+  @each $key, $shades in $colors {
+    @each $shade, $value in $shades {
+      $class: '';
 
-    @if $i == 0 {
-      .c-#{$name} { color: $shade; }
-      .cbg-#{$name} { background-color: $shade; }
+      @if $shade == 'default' {
+        $class: #{$key};
+      }
+      @else {
+        $class: #{$key}-#{$shade};
+      }
+
+      .c-#{$class} {
+        color: $value;
+      }
+
+      .cbg-#{$class} {
+        background-color: $value;
+      }
     }
-    @if $i == 1 {
-      .c-#{$name}-alt { color: $shade; }
-      .cbg-#{$name}-alt { background-color: $shade; }
+  }
+};
+
+@mixin build-greyscale($greyscale) {
+  @each $key, $value in $greyscale {
+    .cg-#{$key} {
+      color: $value;
     }
-    @else {
-      .c-#{$name}-alt-#{$i)} { color: $shade; }
-      .cbg-#{$name}-alt-#{$i)} { background-color: $shade; }
+    .cbgg-#{$key} {
+      background-color: $value;
     }
   }
 }

@@ -75,55 +75,42 @@ $typesets: (
 $container-width: 80rem !default;
 $columns: 12 !default;
 
-
+// Colorsets
 $colors: (
   'primary': (
-    'default': hsl(27, 100, 53),
-    'alt':     hsl(27, 100, 63),
-    'alt-2':   hsl(27, 100, 73),
-    'alt-3':   hsl(27, 100, 83)
+    'default':  hsl(240, 90, 50),
+    'alt':      hsl(240, 90, 40),
+    'alt-2':    hsl(240, 90, 30)
+  ),
+  'secondary': (
+    'default':  hsl(27, 100, 53),
+    'alt':      hsl(27, 100, 43),
+  ),
+  'success': (
+    'default':  hsl(122, 90, 50),
+    'alt':      hsl(122, 90, 40),
+    'alt-2':    hsl(122, 90, 30)
+  ),
+  'error': (
+    'default':  hsl(0, 90, 50),
+    'alt':      hsl(0, 90, 40),
+    'alt-2':    hsl(0, 90, 30),
   )
 ) !default;
 
+// Greyscale
 $greyscale: (
-  'black': #010101,
-  'white': #fefefe
+  'black': hsl(240, 1, 1),
+  '1':     hsl(240, 4, 10),
+  '2':     hsl(240, 3, 24),
+  '3':     hsl(240, 3, 30),
+  '4':     hsl(240, 2, 40),
+  '5':     hsl(240, 2, 50),
+  '6':     hsl(240, 2, 84),
+  '7':     hsl(240, 1, 92),
+  '8':     hsl(240, 1, 96),
+  'white': hsl(240, 0, 99)
 ) !default;
-
-// Colors
-$color-primary:     hsl(27, 100, 53)
-                    hsl(27, 100, 63)
-                    hsl(27, 100, 73)
-                    hsl(27, 100, 83);
-
-$color-secondary:   hsl(210, 29, 29)
-                    hsl(210, 29, 39)
-                    hsl(210, 29, 49) !default;
-
-$color-error:       hsl(6, 78, 57)
-                    hsl(6, 78, 67)
-                    hsl(6, 78, 77) !default;
-
-$color-warning:     hsl(37, 90, 50)
-                    hsl(37, 90, 60)
-                    hsl(37, 90, 70) !default;
-
-$color-success:     hsl(145, 63, 52)
-                    hsl(145, 63, 62)
-                    hsl(145, 63, 72) !default;
-
-$black:             #000 !default;
-$white:             #fff !default;
-$greys:             hsl(27, 1, 10)
-                    hsl(27, 1, 20)
-                    hsl(27, 1, 30)
-                    hsl(27, 1, 40)
-                    hsl(27, 1, 50)
-                    hsl(27, 1, 60)
-                    hsl(27, 1, 70)
-                    hsl(27, 1, 80)
-                    hsl(27, 1, 90)
-                    hsl(27, 1, 95) !default;
 
 // Modular Scale
 $modular-scale: (
