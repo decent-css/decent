@@ -15,12 +15,12 @@
 
 | Identifier     | Key |
 |----------------|----------------|
-| `o`            | `auto`<br> `visible`<br> `hidden` |
+| `o`            | `auto`, `visible`, `hidden` |
 
 ### Floats
 
 Identifier       | Key |
 |----------------|----------------|
-| `f`            | `none`<br> `left`<br> `right` |
+| `f`            | `none`, `left`, `right` |
 | | `clearfix` |
 
