@@ -45,9 +45,16 @@ $greyscale: (
 
 ## Classes
 
-| Property | Prefix    | Key | Modifier (Optional) |
-|-|--------|-|-|
-| Text Color        | `c` | `primary`, `secondary`, `success`, `error` | `alt`, `alt-2` |
-| Background Color | `cbg` | `primary`, `secondary`, `success`, `error` | `alt`, `alt-2` |
-| Text Color (Gray) | `cg` | `black`, `1`-`8`, `white` | - |
-| Background Color (Gray) | `cbgg` | `black`, `1`-`8`, `white` | - |
+### Colors
+
+| Identifier    | Key | Modifier (Optional) |
+|--------|-|-|
+| `c` | `primary`, `secondary`, `success`, `error` | `alt`, `alt-2` |
+| `cbg` | `primary`, `secondary`, `success`, `error` | `alt`, `alt-2` |
+
+
+### Greyscale
+| Identifier    | Key | Modifier (Optional) |
+|--------|-|-|
+| `cg` | `black`, `1`-`8`, `white` | - |
+| `cbgg` | `black`, `1`-`8`, `white` | - |
