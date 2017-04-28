@@ -54,7 +54,7 @@ $greyscale: (
 
 
 ### Greyscale
-| Identifier    | Key | Modifier (Optional) |
+| Identifier    | Key |
 |--------|-|-|
-| `cg` | `black`, `1`-`8`, `white` | - |
-| `cbgg` | `black`, `1`-`8`, `white` | - |
+| `cg` | `black`, `1`-`8`, `white` |
+| `cbgg` | `black`, `1`-`8`, `white` |
