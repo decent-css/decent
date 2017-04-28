@@ -18,19 +18,22 @@
 // FROM,OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-@import '../util/index';
+@import '../../util/index';
 
-@include build-classes((
-  'w':     (width, map-merge($modular-scale, ('auto': auto))),
-  'minw':  (min-width, $modular-scale),
-  'maxw':  (max-width, $modular-scale),
-  'wp':    (width, $percentage-scale),
-  'minwp': (min-width, $percentage-scale),
-  'maxwp': (max-width, $percentage-scale),
-  'h':     (height, map-merge($modular-scale, ('auto': auto))),
-  'hp':    (height, $percentage-scale),
-  'minh':  (min-height, $modular-scale),
-  'maxh':  (max-height, $modular-scale),
-  'minhp': (min-height, $percentage-scale),
-  'maxhp': (max-height, $percentage-scale)
-), $breakpoints);
+@include build-classes(
+  (
+    'w':     (width, map-merge($modular-scale, ('auto': auto))),
+    'minw':  (min-width, $modular-scale),
+    'maxw':  (max-width, $modular-scale),
+    'wp':    (width, $percentage-scale),
+    'minwp': (min-width, $percentage-scale),
+    'maxwp': (max-width, $percentage-scale),
+    'h':     (height, map-merge($modular-scale, ('auto': auto))),
+    'hp':    (height, $percentage-scale),
+    'minh':  (min-height, $modular-scale),
+    'maxh':  (max-height, $modular-scale),
+    'minhp': (min-height, $percentage-scale),
+    'maxhp': (max-height, $percentage-scale)
+  ),
+    $breakpoints
+);

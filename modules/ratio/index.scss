@@ -3,26 +3,32 @@
 // https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
 
-@import '../util/index';
+@import '../../util/index';
 
 [class^='ratio-'],
 [class*=' ratio-'] {
-  width: 100%;
   position: relative;
+  width: 100%;
 
   &::before {
-    content: "";
     display: block;
+    content: '';
   }
 
-  & > *:not([class*='absolute']) {
-    position: absolute;
-    top: 0;
-    left: 0;
+  & > * {
+    &:not([class*='absolute']) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
   @each $name, $ratio in $ratios {
-    &[class*='#{$name}']::before { padding-top: ($ratio * 100) + 0%; }
+    &[class*='#{$name}'] {
+      &::before {
+        padding-top: ($ratio * 100) + 0%;
+      }
+    }
   }
 }
 

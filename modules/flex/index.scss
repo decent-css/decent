@@ -1,0 +1,91 @@
+// -
+// Decent
+// https://github.com/decent-css/decent
+// ----------------------------------------------------------------------------
+
+@import '../../util/index';
+
+@include build-classes(
+  (
+    'flex': (display, flex),
+    'inline-flex': (display, inline-flex),
+    'flex-column': (flex-direction,
+      (
+        'default': column,
+        'reverse': column-reverse
+      )
+    ),
+    'flex-row':  (flex-direction,
+      (
+        'default': row,
+        'reverse': row-reverse
+      )
+    ),
+    'flex-wrap': (flex-wrap, wrap),
+    'flex-nowrap': (flex-wrap, nowrap),
+    'flex-grow': (flex-grow,
+      (
+        'default': 1,
+        '0': 0,
+        '1': 1,
+        '2': 2,
+        '3': 3
+      )
+    ),
+    'flex-shrink': (flex-shrink,
+      (
+        'default': 1,
+        '0': 0,
+        '1': 1,
+        '2': 2,
+        '3': 3
+      )
+    ),
+    'items': (align-items,
+      (
+        'start': flex-start,
+        'end': flex-end,
+        'center': center,
+        'baseline': baseline,
+        'stretch': stretch
+      )
+    ),
+    'justify': (justify-content,
+      (
+        'start': flex-start,
+        'end': flex-end,
+        'center': center,
+        'between': space-between,
+        'around': space-around
+      )
+    ),
+    'self': (align-self,
+      (
+        'start': flex-start,
+        'end': flex-end,
+        'center': center,
+        'baseline': baseline,
+        'stretch': stretch
+      )
+    ),
+    'content': (align-content,
+      (
+        'start': flex-start,
+        'end': flex-end,
+        'center': center,
+        'between': space-between,
+        'around': space-around
+      )
+    ),
+    'flex-order': (order,
+      (
+        '0': 0,
+        '1': 1,
+        '2': 2,
+        '3': 3,
+        '4': 4
+      )
+    )
+  ),
+    $breakpoints
+);

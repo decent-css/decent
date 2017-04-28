@@ -3,7 +3,7 @@
 // https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
 
-@import '../util/index';
+@import '../../util/index';
 
 .overlay {
   position: fixed;
@@ -16,12 +16,12 @@
 @each $overlay, $bg in $overlays {
   @if $overlay == 'default' {
     .overlay {
-      background: $bg
+      background: $bg;
     }
   }
   @else {
     .overlay-#{$overlay} {
-      background: $bg
+      background: $bg;
     }
   }
 }

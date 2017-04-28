@@ -1,3 +1,8 @@
+// -
+// Decent
+// https://github.com/decent-css/decent
+// ----------------------------------------------------------------------------
+
 @mixin print-styles($declaration, $value) {
   @if type-of($declaration) == 'list' {
     @each $dec in $declaration {

@@ -3,8 +3,9 @@
 // https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
 
-@import '../util/index';
+@import '../../util/index';
 
+// sass-lint:disable-all
 // Reset the inputs (default: true)
 @if $reset-inputs {
   // Form Resets.
@@ -31,7 +32,7 @@ a {
   text-decoration: none;
 }
 
-// Reset 
+// Reset
 // (http://meyerweb.com/eric/tools/css/reset/)
 html,
 body,
@@ -164,3 +165,4 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+// sass-lint:enable-all
