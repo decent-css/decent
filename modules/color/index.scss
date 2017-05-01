@@ -3,11 +3,13 @@
 // https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
 
-@import '../util/index';
+@import '../../util/index';
 
 @include build-colors($colorsets);
 @include build-greyscale($greyscale);
 
 @for $i from 0 through 10 {
-  .a-#{$i} { opacity: $i/10; }
+  .a-#{$i} {
+    opacity: $i / 10;
+  }
 }

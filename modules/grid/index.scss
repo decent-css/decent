@@ -3,12 +3,12 @@
 // https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
 
-@import '../util/index';
+@import '../../util/index';
 
 .container {
   max-width: $container-width;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 [class^='col-'],
@@ -20,15 +20,15 @@
 }
 
 @for $i from 1 through $columns {
-  .col-#{$i} { width: ($i/$columns * 100%); }
-  .push-#{$i} { margin-left: ($i/$columns * 100%); }
+  .col-#{$i} { width: ($i / $columns * 100%); }
+  .push-#{$i} { margin-left: ($i / $columns * 100%); }
 }
 
 @each $abbr, $breakpoint in $breakpoints {
   @media (min-width: $breakpoint) {
     @for $i from 1 through $columns {
-      .#{$abbr}-col-#{$i} { width: ($i/$columns * 100%); }
-      .#{$abbr}-push-#{$i} { margin-left: ($i/$columns * 100%); }
+      .#{$abbr}-col-#{$i} { width: ($i / $columns * 100%); }
+      .#{$abbr}-push-#{$i} { margin-left: ($i / $columns * 100%); }
     }
   }
 }

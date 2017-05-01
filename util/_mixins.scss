@@ -1,3 +1,8 @@
+// -
+// Decent
+// https://github.com/decent-css/decent
+// ----------------------------------------------------------------------------
+
 @mixin print-styles($declaration, $value) {
   @if type-of($declaration) == 'list' {
     @each $dec in $declaration {
@@ -103,16 +108,16 @@
       }
 
       @if $context == 'start' {
-        &[class*='target'],
-        [class*='#{$interaction}-target'] {
+        &[class*='actor'],
+        [class*='#{$interaction}-actor'] {
           @include print-styles($styles);
           transition: $default-transition;
         }
       }
 
       @if $context == 'end' {
-        &[class*='target']:#{$state},
-        &:hover [class*='#{$interaction}-target'] {
+        &[class*='actor']:#{$state},
+        &:hover [class*='#{$interaction}-actor'] {
           @include print-styles($styles);
         }
       }
@@ -153,7 +158,8 @@
     }
     @elseif $set == 'monospace' {
       pre,
-      code {
+      code,
+      .#{$set} {
         @each $setting, $value in $settings {
           #{$setting}: $value;
         }

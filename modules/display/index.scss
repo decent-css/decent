@@ -3,25 +3,45 @@
 // https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
 
-@import '../util/index';
+@import '../../util/index';
 
-@include build-classes((
-  'none': (display, none),
-  'inline': (display, inline),
-  'block': (display, block),
-  'inline-block': (display, inline-block),
-  'o': (overflow, (
-    'auto': auto,
-    'visible': visible,
-    'hidden': hidden
-  ))
-), $breakpoints);
+@include build-classes(
+  (
+    'hide': (display, none),
+    'inline': (display, inline),
+    'block': (display, block),
+    'inline-block': (display, inline-block),
+    'o': (overflow,
+      (
+        'auto': auto,
+        'visible': visible,
+        'hidden': hidden
+      )
+    ),
+    'f': (float,
+      (
+        'none': none,
+        'left': left,
+        'right': right
+      )
+    )
+  ),
+    $breakpoints
+);
 
+.clearfix {
+  &::after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+}
 
 // ============================================================================
 // Deprecation
 // sass-lint:disable-all
 // ----------------------------------------------------------------------------
+
 .no-wrap { white-space: nowrap; }
 .d-hidden, .hidden { visibility: hidden; pointer-events: none; position: absolute; left: -300%; }
 .d-inline-block { display: inline-block; }
@@ -40,5 +60,6 @@
 [class*=' bg-'] {
   &[class*='cover'] { background-size: cover; }
 }
+
 // ----------------------------------------------------------------------------
 // sass-lint:enable-all

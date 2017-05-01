@@ -3,19 +3,17 @@
 // https://github.com/decent-css/decent
 // ----------------------------------------------------------------------------
 
-@import 'reset';
-
-@import 'color';
-@import 'display';
-@import 'flex';
-@import 'float';
-@import 'grid';
-@import 'interaction';
-@import 'length';
-@import 'overlay';
-@import 'position';
-@import 'ratio';
-@import 'spacing';
-@import 'style';
-@import 'table';
-@import 'type';
+@import 'color/index';
+@import 'display/index';
+@import 'flex/index';
+@import 'grid/index';
+@import 'interaction/index';
+@import 'length/index';
+@import 'overlay/index';
+@import 'position/index';
+@import 'ratio/index';
+@import 'reset/index';
+@import 'spacing/index';
+@import 'style/index';
+@import 'table/index';
+@import 'typography/index';

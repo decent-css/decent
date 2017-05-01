@@ -1,0 +1,23 @@
+// -
+// Decent
+// https://github.com/decent-css/decent
+// ----------------------------------------------------------------------------
+
+@import '../../util/index';
+
+@each $interaction, $contexts in $interactions {
+  [class^='hover-'],
+  [class*=' hover-'] {
+    @include interaction($interaction, $contexts, 'hover');
+  }
+
+  [class^='active-'],
+  [class*=' active-'] {
+    @include interaction($interaction, $contexts, 'active');
+  }
+
+  [class^='focus-'],
+  [class*=' focus-'] {
+    @include interaction($interaction, $contexts, 'focus');
+  }
+}

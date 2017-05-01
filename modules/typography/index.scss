@@ -1,0 +1,61 @@
+// -
+// Decent
+// https://github.com/decent-css/decent
+// ----------------------------------------------------------------------------
+
+@import '../../util/index';
+
+@include build-classes(
+  (
+    'tw': (font-weight, $font-weights),
+    'line-through': (text-decoration, line-through),
+    'underline': (text-decoration, underline),
+    'italic': (font-style, italic),
+    'uppercase': (text-transform, uppercase),
+    'capitalize': (text-transform, capitalize),
+    'lowercase': (text-transform, lowercase),
+    'nowrap': (white-space, nowrap),
+    'va': (vertical-align,
+      (
+        'baseline': baseline,
+        'sub': sub,
+        'super': super,
+        'text-top': text-top,
+        'text-bottom': text-bottom,
+        'middle': middle,
+        'top': top,
+        'bottom': bottom
+      )
+    )
+  )
+);
+
+// Responsive.
+@include build-classes(
+  (
+    'ta': (text-align,
+      (
+        'center': center,
+        'left': left,
+        'right': right
+      )
+    )
+), $breakpoints);
+
+// Build the font scale.
+@include font-scale($ratio);
+@include typeset($typesets)
+
+// sass-lint:disable no-important
+body,
+html {
+  font-size: $rem-base !important;
+}
+// sass-lint:enable no-important
+
+// sass-lint:disable no-vendor-prefixes
+.antialiased {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+// sass-lint:enable no-vendor-prefixes
