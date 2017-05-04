@@ -1,6 +1,6 @@
 # Decent.scss
 
-![CircleCI Status](https://circleci.com/gh/decent-css/decent.png?circle-token=0dcc6cc41b64bbf3be8abff6ae9d00823dcf2955&style=shield)
+[![npm version](https://badge.fury.io/js/decent-scss.svg)](https://badge.fury.io/js/decent-scss) ![CircleCI Status](https://circleci.com/gh/decent-css/decent.png?circle-token=0dcc6cc41b64bbf3be8abff6ae9d00823dcf2955&style=shield)
 
 Decent is a flexible, functional CSS library for building _literally_ anything. Designed to be as flexible and configurable as possible, it can be used for building anything from prototypes to production applications and websites.
 
