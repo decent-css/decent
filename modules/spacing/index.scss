@@ -30,7 +30,8 @@
     'mtn': (margin-top, $modular-scale),
     'mrn': (margin-right, $modular-scale),
     'mbn': (margin-bottom, $modular-scale),
-    'mln': (margin-left, $modular-scale)
+    'mln': (margin-left, $modular-scale),
+    'mxn': ((margin-left, margin-right), $modular-scale),
   ),
     $breakpoints,
     true
