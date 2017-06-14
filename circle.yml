@@ -6,6 +6,9 @@ machine:
   environment:
     CIRCLE_ENV: test
 
+  node:
+    version: 8.1.0
+
 ## Customize test commands
 test:
   post:
