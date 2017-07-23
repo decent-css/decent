@@ -158,6 +158,11 @@ $ratios: (
 $default-border-weight: 1px !default;
 $default-border-color:  #e8e9eb !default;
 
+$border-widths: (
+  'default': 1px,
+  'thick':   4px
+);
+
 $border-radii: (
   'default': 2px
 ) !default;

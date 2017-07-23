@@ -7,12 +7,49 @@
 
 @include build-classes(
   (
-    'b': (border, $default-border-weight solid $default-border-color),
-    'bt': (border-top, $default-border-weight solid $default-border-color),
-    'br': (border-right, $default-border-weight solid $default-border-color),
-    'bb': (border-bottom, $default-border-weight solid $default-border-color),
-    'bl': (border-left, $default-border-weight solid $default-border-color),
+    // 'b': (border, $default-border-weight solid $default-border-color),
+    // 'bt': (border-top, $default-border-weight solid $default-border-color),
+    // 'br': (border-right, $default-border-weight solid $default-border-color),
+    // 'bb': (border-bottom, $default-border-weight solid $default-border-color),
+    // 'bl': (border-left, $default-border-weight solid $default-border-color),
     'shadow': (box-shadow, $shadows),
     'rounded': (border-radius, $border-radii)
   )
 );
+
+
+@mixin build-borders($greyscale, $border-widths) {
+  @each $grey-key, $grey-value in $greyscale {
+
+    $classname: 'b';
+
+
+    @each $width-key, $width-value in $border-widths {
+
+      @if $width-key == 'default' {
+        $classname: $classname + '-' + $grey-key;
+      }
+      @else {
+        $classname: $classname + '-' + $width-key + '-' + $grey-key;
+      }
+
+      .#{$classname} {
+        border: $width-value solid $grey-value;
+      }
+
+      // .b {
+      //   border: 1px solid $grey-key
+      // }
+
+      // @include build-classes(
+      //   (
+      //     'b': (border, 1px solid $grey-value)
+      //   )
+      // )
+
+    }
+
+  }
+}
+
+@include build-borders($greyscale, $border-widths);
