@@ -5,7 +5,7 @@ describe('grid', () => {
 
   it('should create a container class', function () {
     div.className = 'container'
-    expect(div.computedStyle.maxWidth).to.exist
+    expect(div.computedStyle.maxWidth).to.equal('1280px')
   })
 
   it('should set a col width', function () {

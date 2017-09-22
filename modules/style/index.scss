@@ -7,49 +7,43 @@
 
 @include build-classes(
   (
-    // 'b': (border, $default-border-weight solid $default-border-color),
-    // 'bt': (border-top, $default-border-weight solid $default-border-color),
-    // 'br': (border-right, $default-border-weight solid $default-border-color),
-    // 'bb': (border-bottom, $default-border-weight solid $default-border-color),
-    // 'bl': (border-left, $default-border-weight solid $default-border-color),
-    'shadow': (box-shadow, $shadows),
-    'rounded': (border-radius, $border-radii)
+    'b': (border, $default-border-width solid $default-border-color),
+    'bt': (border-top, $default-border-width solid $default-border-color),
+    'br': (border-right, $default-border-width solid $default-border-color),
+    'bb': (border-bottom, $default-border-width solid $default-border-color),
+    'bl': (border-left, $default-border-width solid $default-border-color),
+    'bw': (border-width, $border-widths),
+    'radius': (border-radius, $border-radii),
+    'shadow': (box-shadow, $shadows)
   )
 );
 
+@mixin build-borders($set, $name: '') {
 
-@mixin build-borders($greyscale, $border-widths) {
-  @each $grey-key, $grey-value in $greyscale {
+  @each $key, $value in $set {
 
-    $classname: 'b';
+    $border-value: $default-border-width solid $value;
 
-
-    @each $width-key, $width-value in $border-widths {
-
-      @if $width-key == 'default' {
-        $classname: $classname + '-' + $grey-key;
+    @if $name != '' {
+      @if $key != 'default' {
+        $key: $name + '-' + $key;
       }
       @else {
-        $classname: $classname + '-' + $width-key + '-' + $grey-key;
+        $key: $name;
       }
-
-      .#{$classname} {
-        border: $width-value solid $grey-value;
-      }
-
-      // .b {
-      //   border: 1px solid $grey-key
-      // }
-
-      // @include build-classes(
-      //   (
-      //     'b': (border, 1px solid $grey-value)
-      //   )
-      // )
-
     }
+
+    .b-#{$key} { border: $border-value; }
+    .bl-#{$key} { border: $border-value; }
+    .br-#{$key} { border: $border-value; }
+    .bb-#{$key} { border: $border-value; }
+    .bt-#{$key} { border: $border-value; }
 
   }
 }
 
-@include build-borders($greyscale, $border-widths);
+@include build-borders($greyscale);
+
+@each $name, $colorset in $colorsets {
+  @include build-borders($colorset, $name);
+}
