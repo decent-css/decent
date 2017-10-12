@@ -7,7 +7,7 @@ Decent is a flexible, functional CSS library for building _literally_ anything. 
 
 * [Modules](#modules)
 * [Setup](#setup)
-* [Configuration](#design)
+* [Configuration](#configuration)
   * [Base](#base)
   * [Responsive Breakpoints](#responsive-breakpoints)
   * [Typography](#typography)
@@ -16,7 +16,7 @@ Decent is a flexible, functional CSS library for building _literally_ anything. 
   * [Style](#style)
   * [Overlay](#overlay)
 * [Principles](#principles)
-
+  * [Naming & Configuration](#naming-configuration)
 ---
 
 ## Modules
@@ -54,7 +54,7 @@ $ npm install --save-dev decent-scss
 @import 'decent-scss/modules/all';
 ```
 
-## Design
+## Configuration
 
 Decent is meant to work for _your_ design, so take a few minutes to configure the framework. Create a `.scss` file to define your settings — something like `settings.scss`. And import that file _above_ your Decent import.
 
@@ -181,8 +181,45 @@ $overlays: (
 );
 ```
 
-
 ## Principles
+
+### Naming & Configuration
+Decent is designed to be incredibly flexible while balancing the right amount of assumption to be consistent and easy-to-use. Most of the Decent class names can be broken down into 5 categories (with some exceptions depending on the property):
+
+
+[`breakpoint-`][`property`][`modifiers`][`-key`][`-value`]
+ 
+
+#### Example — Color
+```
+$colorsets: (
+  'primary': (
+    'alt': #
+  )
+);
+```
+
+| | Breakpoint | Property | Modifiers | Key | Value |
+|-|------------|----------|-----------|-----|-------|
+| **`.c-primary-alt`** |            | `c`      |           | `primary` | `alt` |
+
+
+#### Example — Margin
+
+```
+$modular-scale: (
+ '1': 0.5rem
+);
+```
+
+
+|  | Breakpoint | Property | Modifiers | Key | Value |
+|--|------------|----------|-----------|-----|-------|
+| **`.mt-1`** |            | **`m`** = `margin`      | **`t`** = `top`  |     | **`1`** = `0.5rem`  |
+| **`.md-mb-1`** | **`md`** = `medium breakpoint`  | **`m`** = `margin`      | **`b`** = `bottom`  |     | **`1`** = `0.5rem`  | 
+| **`.mtn-1`** |   | **`m`** = `margin`      | **`t`** = `top` <br> **`n`** = `negative`  |     | **`1`** = `0.5rem`  | 
+
+---
 
 You might see this and think to yourself, why would anyone want to write CSS this way? So did we. But after some research and using [Basscss](http://www.basscss.com/) for a bit we were hooked.
 
