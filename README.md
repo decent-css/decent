@@ -1,9 +1,9 @@
-# Decent.scss
+# Decent
 
 [![npm version](https://badge.fury.io/js/decent-scss.svg)](https://badge.fury.io/js/decent-scss)
 [![CircleCI Status](https://circleci.com/gh/decent-css/decent.png?circle-token=0dcc6cc41b64bbf3be8abff6ae9d00823dcf2955&style=shield)](https://circleci.com/gh/decent-css)
 
-Decent is a flexible, functional CSS library for building _literally_ anything. Designed to be as flexible and configurable as possible, it can be used for building anything from prototypes to production applications and websites.
+Decent is a flexible, functional CSS library for building _literally_ anything. Designed to be flexible and configurable, it can be used for building anything from simple prototypes to production applications and websites.
 
 
 * [Getting Started](#getting-started)
@@ -23,8 +23,8 @@ Decent is a flexible, functional CSS library for building _literally_ anything. 
 ## Modules
 
 * [Color](/modules/color/README.md)
-  * [Text Color](/modules/color/README.md)
-  * [Background Color](/modules/color/README.md)
+  * [Text Color](/modules/color/README.md#text-color)
+  * [Background Color](/modules/color/README.md#background-color)
 * [Display](/modules/display/README.md)
   * [Display](/modules/display/README.md#display)
   * [Overflow](/modules/display/README.md#overflow)
@@ -48,30 +48,32 @@ Decent is a flexible, functional CSS library for building _literally_ anything. 
 ## Getting Started
 
 ### Setup
-#### Install Decent.
+#### Install Decent
 ```
-npm install decent-scss
+$ npm install --save-dev decent-scss
 ```
 
-### Include the path to the index file in your build.
+### Import Decent
 ```
-@import 'path/to/settings'
-@import 'decent-scss/modules/all'
+@import 'decent-scss/modules/all';
 ```
 
 ### Design
 
-Create a `.scss` file to define your settings — something like `settings.scss`. And import that file _above_ your Decent import.
+Decent is meant to work for _your_ design, so take a few minutes to configure the framework. Create a `.scss` file to define your settings — something like `settings.scss`. And import that file _above_ your Decent import.
 
 ```
-@import 'decent-scss/modules/all'
+@import 'path/to/settings';
 ```
 
 #### Base
+It is recommended that you use `rem`'s for scaling type and elements, and so, the first step to configuring decent is choosing what your base `rem` value will be (the default is `16px`).
 
 ```
 $rem-base: 16px;
 ```
+
+
 ```
 $border-box: true;
 ```
@@ -80,6 +82,7 @@ $reset-inputs: true;
 ```
 
 #### Responsive Breakpoints
+You can change or extend the breakpoints available with the `$breakpoints` map.
 
 ```
 $breakpoints: (
@@ -90,12 +93,16 @@ $breakpoints: (
 );
 ```
 
-
 #### Typography
+[Change to font-sizes map]
 
 ```
 $ratio: 1.5;
+```
 
+The `default` typeset will be set on the `body` selector.
+
+```
 $typesets: (
   default: (
     font-family: (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;),
@@ -105,22 +112,24 @@ $typesets: (
     text-transform: none,
     letter-spacing: 0
   ),
+    monospace: (
+    font-family: (Courier, monospace),
+    font-weight: 400,
+    line-height: 1.2,
+    text-transform: none,
+    letter-spacing: 0
+  ),
   display: (
     font-family: ('Cormorant Garamond', Georgia, serif),
     font-weight: 400,
     line-height: 1.2,
     text-transform: uppercase,
     letter-spacing: 0.1em
-  ),
-  monospace: (
-    font-family: (Courier, monospace),
-    font-weight: 400,
-    line-height: 1.2,
-    text-transform: none,
-    letter-spacing: 0
   )
 );
+```
 
+```
 $font-weights: (
   'regular': 400,
   'semibold': 500,
