@@ -5,7 +5,7 @@
 
 Decent is a flexible, functional CSS library for building _literally_ anything. Designed to be flexible and configurable, it can be used for building anything from simple prototypes to production applications and websites.
 
-
+* [Modules](#modules)
 * [Setup](#setup)
 * [Configuration](#design)
   * [Base](#base)
@@ -25,7 +25,6 @@ Decent is a flexible, functional CSS library for building _literally_ anything. 
   * [Text Color](/modules/color/README.md#text-color)
   * [Background Color](/modules/color/README.md#background-color)
 * [Display](/modules/display/README.md)
-  * [Display](/modules/display/README.md#display)
   * [Overflow](/modules/display/README.md#overflow)
   * [Floats](/modules/display/README.md#overflow)
 * [Flex](/modules/flex/README.md)

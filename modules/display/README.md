@@ -1,15 +1,12 @@
 # Display
 
 * [Class Reference](#class-reference)
-  * [Display](#display)
   * [Overflow](#overflow)
   * [Floats](#overflow)
 
 ---
 
 ## Class Reference
-
-### Display
 
 | Class     | Output  |
 |----------------|-----|
