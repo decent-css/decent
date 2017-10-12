@@ -6,17 +6,16 @@
 Decent is a flexible, functional CSS library for building _literally_ anything. Designed to be flexible and configurable, it can be used for building anything from simple prototypes to production applications and websites.
 
 
-* [Getting Started](#getting-started)
-  * [Setup](#setup)
-  * [Configuration](#design)
-    * [Base](#base)
-    * [Responsive Breakpoints](#responsive-breakpoints)
-    * [Typography](#typography)
-    * [Grid](#grid)
-    * [Spacing, Length, and Position](#spacing-length-and-position)
-    * [Style](#style)
-    * [Overlay](#overlay)
-  * [Using the Classes](#using-the-classes)
+* [Setup](#setup)
+* [Configuration](#design)
+  * [Base](#base)
+  * [Responsive Breakpoints](#responsive-breakpoints)
+  * [Typography](#typography)
+  * [Grid](#grid)
+  * [Spacing, Length, and Position](#spacing-length-and-position)
+  * [Style](#style)
+  * [Overlay](#overlay)
+* [Principles](#principles)
 
 ---
 
@@ -45,10 +44,8 @@ Decent is a flexible, functional CSS library for building _literally_ anything. 
 
 ---
 
-## Getting Started
-
-### Setup
-#### Install Decent
+## Setup
+### Install Decent
 ```
 $ npm install --save-dev decent-scss
 ```
@@ -58,7 +55,7 @@ $ npm install --save-dev decent-scss
 @import 'decent-scss/modules/all';
 ```
 
-### Design
+## Design
 
 Decent is meant to work for _your_ design, so take a few minutes to configure the framework. Create a `.scss` file to define your settings — something like `settings.scss`. And import that file _above_ your Decent import.
 
@@ -66,7 +63,7 @@ Decent is meant to work for _your_ design, so take a few minutes to configure th
 @import 'path/to/settings';
 ```
 
-#### Base
+### Base
 It is recommended that you use `rem`'s for scaling type and elements, and so, the first step to configuring decent is choosing what your base `rem` value will be (the default is `16px`).
 
 ```
@@ -81,7 +78,7 @@ $border-box: true;
 $reset-inputs: true;
 ```
 
-#### Responsive Breakpoints
+### Responsive Breakpoints
 You can change or extend the breakpoints available with the `$breakpoints` map.
 
 ```
@@ -93,7 +90,7 @@ $breakpoints: (
 );
 ```
 
-#### Typography
+### Typography
 [Change to font-sizes map]
 
 ```
@@ -137,7 +134,7 @@ $font-weights: (
 ) !default;
 ```
 
-#### Grid
+### Grid
 
 ```
 $container-width: 80rem;
@@ -147,7 +144,7 @@ $columns: 12;
 ```
 
 
-#### Spacing, Length, and Position
+### Spacing, Length, and Position
 
 ```
 $modular-scale: (
@@ -165,7 +162,7 @@ $modular-scale: (
 );
 ```
 
-#### Style
+### Style
 
 ```
 $border-radii: (
@@ -178,7 +175,7 @@ $shadows: (
 );
 ```
 
-#### Overlay
+### Overlay
 ```
 $overlays: (
   'default': rgba(#000, 0.8)
@@ -186,10 +183,7 @@ $overlays: (
 ```
 
 
-### Using the Classes
-
-
-## Rationale
+## Principles
 
 You might see this and think to yourself, why would anyone want to write CSS this way? So did we. But after some research and using [Basscss](http://www.basscss.com/) for a bit we were hooked.
 
