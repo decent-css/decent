@@ -28,7 +28,6 @@
     "karma-mocha-reporter": "^2.2.3",
     "karma-webpack": "^2.0.3",
     "mocha": "^3.2.0",
-    "pre-commit": "^1.2.2",
     "pre-push": "^0.1.1",
     "sass-brunch": "^2.10.4",
     "sass-lint-brunch": "^1.1.0",
