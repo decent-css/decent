@@ -16,7 +16,8 @@ Decent is a flexible, functional CSS library for building _literally_ anything. 
   * [Style](#style)
   * [Overlay](#overlay)
 * [Principles](#principles)
-  * [Naming & Configuration](#naming-configuration)
+  * [Naming & Configuration](#naming--configuration)
+  * [Bass CSS & Tachyons](#bass-css--tachyons)
 ---
 
 ## Modules
