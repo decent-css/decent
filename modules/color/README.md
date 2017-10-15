@@ -44,15 +44,13 @@ $colorsets: (
 ) !default;
 ```
 
-## Classes
-
 ### Text Color
 
 | Class Name | Output |
 |----|---|
 | `c-primary` | `color: hsl(240, 90, 50)` |
 | `c-primary-alt` | `color: hsl(240, 90, 40)` |
-| `c-primary-alt-2` | `hsl(240, 90, 30)` |
+| `c-primary-alt-2` | `color: hsl(240, 90, 30)` |
 | `c-secondary` | `color: hsl(27, 100, 53)` |
 | `c-secondary-alt` | `color: hsl(27, 100, 43)` |
 | `c-success` | `color: hsl(122, 90, 50)` |
@@ -76,21 +74,21 @@ $colorsets: (
 | Class Name | Output |
 |----|---|
 | `cbg-primary` | `background-color: hsl(240, 90, 50)` |
-| `c-primary-alt` | `background-color: hsl(240, 90, 40)` |
-| `c-primary-alt-2` | `hsl(240, 90, 30)` |
-| `c-secondary` | `background-color: hsl(27, 100, 53)` |
-| `c-secondary-alt` | `background-color: hsl(27, 100, 43)` |
-| `c-success` | `background-color: hsl(122, 90, 50)` |
-| `c-success-alt` | `background-color: hsl(122, 90, 40)` |
-| `c-error` | `background-color: hsl(0, 90, 50)` |
-| `c-error-alt` | `background-color: hsl(0, 90, 40)` |
-| `c-grey-black` | `background-color: hsl(240, 1, 1)` |
-| `c-grey-1` | `background-color: hsl(240, 1, 10)` |
-| `c-grey-2` | `background-color: hsl(240, 4, 24)` |
-| `c-grey-3` | `background-color: hsl(240, 3, 30)` |
-| `c-grey-4` | `background-color: hsl(240, 3, 40)` |
-| `c-grey-5` | `background-color: hsl(240, 2, 50)` |
-| `c-grey-6` | `background-color: hsl(240, 2, 84)` |
-| `c-grey-7` | `background-color: hsl(240, 1, 92)` |
-| `c-grey-8` | `background-color: hsl(240, 1, 96)` |
-| `c-grey-white` | `background-color: hsl(240, 0, 99)` |
+| `cbg-primary-alt` | `background-color: hsl(240, 90, 40)` |
+| `cbg-primary-alt-2` | `hsl(240, 90, 30)` |
+| `cbg-secondary` | `background-color: hsl(27, 100, 53)` |
+| `cbg-secondary-alt` | `background-color: hsl(27, 100, 43)` |
+| `cbg-success` | `background-color: hsl(122, 90, 50)` |
+| `cbg-success-alt` | `background-color: hsl(122, 90, 40)` |
+| `cbg-error` | `background-color: hsl(0, 90, 50)` |
+| `cbg-error-alt` | `background-color: hsl(0, 90, 40)` |
+| `cbg-grey-black` | `background-color: hsl(240, 1, 1)` |
+| `cbg-grey-1` | `background-color: hsl(240, 1, 10)` |
+| `cbg-grey-2` | `background-color: hsl(240, 4, 24)` |
+| `cbg-grey-3` | `background-color: hsl(240, 3, 30)` |
+| `cbg-grey-4` | `background-color: hsl(240, 3, 40)` |
+| `cbg-grey-5` | `background-color: hsl(240, 2, 50)` |
+| `cbg-grey-6` | `background-color: hsl(240, 2, 84)` |
+| `cbg-grey-7` | `background-color: hsl(240, 1, 92)` |
+| `cbg-grey-8` | `background-color: hsl(240, 1, 96)` |
+| `cbg-grey-white` | `background-color: hsl(240, 0, 99)` |
