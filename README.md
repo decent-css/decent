@@ -73,16 +73,23 @@ Decent is meant to work for _your_ design, so take a few minutes to configure th
 ```
 
 ### Base
-It is recommended that you use `rem`'s for scaling type and elements, and so, the first step to configuring decent is choosing what your base `rem` value will be (the default is `16px`).
+
+#### `rem`
+If you use `rem`'s for measurements and font sizes, you can update the base `rem` value with the `$rem-base` variable — this will be applied to the `body` selector. Default is `16px`.
 
 ```
 $rem-base: 16px;
 ```
 
+#### Box Sizing
+Setting `$border-box` to `true` will apply `box-sizing: border-box` to the `*` selector. Default is `false`.
 
 ```
 $border-box: true;
 ```
+
+#### Inputs
+Browser default styling of inputs aren't reset by the [Reset](/modules/reset) module, but they can be reset with Decent by setting `$reset-inputs` to `true`. Default is `false`.
 ```
 $reset-inputs: true;
 ```
@@ -92,7 +99,7 @@ You can change or extend the breakpoints available with the `$breakpoints` map.
 
 ```
 $breakpoints: (
-  sm: 600px,
+  sm: 480px,
   md: 768px,
   lg: 1280px,
   xl: 1440px
@@ -106,7 +113,11 @@ $breakpoints: (
 $ratio: 1.5;
 ```
 
+#### Typesets
+
 The `default` typeset will be set on the `body` selector.
+
+The `monospace` typeset will be set on the `pre, code` selectors.
 
 ```
 $typesets: (
@@ -118,7 +129,7 @@ $typesets: (
     text-transform: none,
     letter-spacing: 0
   ),
-    monospace: (
+  monospace: (
     font-family: (Courier, monospace),
     font-weight: 400,
     line-height: 1.2,
@@ -135,6 +146,8 @@ $typesets: (
 );
 ```
 
+#### Weights
+
 ```
 $font-weights: (
   'regular': 400,
@@ -144,19 +157,22 @@ $font-weights: (
 ```
 
 ### Grid
-
+The `$container-width` variable updates the `max-width` of the `.container` class.
 ```
 $container-width: 80rem;
 ```
+
+Decent's grid system is based off of 12 columns by default, but can be updated to support any number of columns with the `$columns` variable.
 ```
 $columns: 12;
 ```
 
 
 ### Spacing, Length, and Position
+The default `$measurements` are based off of a [modular scale](http://modularscale.com), but these can be any logical series of keys and values.
 
 ```
-$modular-scale: (
+$measurements: (
   '0':  0,
   '1':  0.5rem,
   '2':  1rem,
@@ -173,11 +189,14 @@ $modular-scale: (
 
 ### Style
 
+#### Border Radius
 ```
 $border-radii: (
   'default': 2px
 );
 ```
+
+#### Box Shadow
 ```
 $shadows: (
   'default': 0 1px 8px rgba(0, 0, 0, 0.1)
@@ -190,6 +209,7 @@ $overlays: (
   'default': rgba(#000, 0.8)
 );
 ```
+
 
 ## Principles
 
