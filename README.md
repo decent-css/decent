@@ -115,9 +115,11 @@ $ratio: 1.5;
 
 #### Typesets
 
-The `default` typeset will be set on the `body` selector.
+Typsets define the available types of your design, with two map keys being _reserved_ for semantic tags:
+* The `default` typeset will be set on the `body` selector.
+* The `monospace` typeset will be set on the `pre, code` selectors. But this typeset will also be available with the `.monospace` class.
 
-The `monospace` typeset will be set on the `pre, code` selectors.
+Additional maps will be availabe through classes that are defined by their keys. For example, the `display` map in the following configuration will generate a `.display` class that can be used to display a serif typeset.
 
 ```
 $typesets: (
@@ -147,14 +149,28 @@ $typesets: (
 ```
 
 #### Weights
+Depending on how fonts are loaded and which weights are available, the `$font-weights` map can be used to rename the `font-weight` classes. The default map is:
 
 ```
 $font-weights: (
   'regular': 400,
   'semibold': 500,
   'bold': 700
-) !default;
+);
 ```
+
+But, a more explicit map could be:
+
+```
+$font-weights: (
+  '400': 400,
+  '500': 500,
+  '700': 700
+);
+```
+
+This would generate `.tw-400`, `.tw-500`, `.tw-700`.
+
 
 ### Grid
 The `$container-width` variable updates the `max-width` of the `.container` class.
@@ -192,21 +208,24 @@ $measurements: (
 #### Border Radius
 ```
 $border-radii: (
-  'default': 2px
+  'default': 2px,
+  '2': 4px
 );
 ```
 
 #### Box Shadow
 ```
 $shadows: (
-  'default': 0 1px 8px rgba(0, 0, 0, 0.1)
+  'default': 0 1px 8px rgba(0, 0, 0, 0.1),
+  '2': 0 4px 16px rgba(0, 0, 0, 0.1)
 );
 ```
 
 ### Overlay
 ```
 $overlays: (
-  'default': rgba(#000, 0.8)
+  'default': rgba(#000, 0.8),
+  'light': rgba(#fff, 0.8)
 );
 ```
 
