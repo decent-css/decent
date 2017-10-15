@@ -197,7 +197,7 @@ Decent is designed to be incredibly flexible while balancing the right amount of
 
 
 [`breakpoint-`][`property`][`modifiers`][`-key`][`-value`]
- 
+
 
 #### Example — Color
 ```
@@ -208,9 +208,7 @@ $colorsets: (
 );
 ```
 
-| | Breakpoint | Property | Modifiers | Key | Value |
-|-|------------|----------|-----------|-----|-------|
-| **`.c-primary-alt`** |            | `c`      |           | `primary` | `alt` |
+![.cbg-primary-alt](/assets/images/naming-diagram--color@2x.png)
 
 
 #### Example — Margin
@@ -221,12 +219,7 @@ $modular-scale: (
 );
 ```
 
-
-|  | Breakpoint | Property | Modifiers | Key | Value |
-|--|------------|----------|-----------|-----|-------|
-| **`.mt-1`** |            | **`m`** = `margin`      | **`t`** = `top`  |     | **`1`** = `0.5rem`  |
-| **`.md-mb-1`** | **`md`** = `medium breakpoint`  | **`m`** = `margin`      | **`b`** = `bottom`  |     | **`1`** = `0.5rem`  | 
-| **`.mtn-1`** |   | **`m`** = `margin`      | **`t`** = `top` <br> **`n`** = `negative`  |     | **`1`** = `0.5rem`  | 
+![.md-pt-1](/assets/images/naming-diagram--margin@2x.png)
 
 ---
 
